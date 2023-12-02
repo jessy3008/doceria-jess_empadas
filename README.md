@@ -1,2 +1,4 @@
 # doceria-jess_empadas
-repositório do projeto de AW e PABD.
+• Projeto das matérias: Autoria Web e Programação com Acesso a Banco de Dados
+• INFO3V - 23.2
+
