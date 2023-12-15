@@ -1,5 +1,5 @@
 # Doceria - Jess Empadas
-![identidade-visual](https://github.com/jessy3008/doceria-jess_empadas/assets/99359081/cbf56141-55a7-4f4a-b14b-5eb6a8a53722)
+![identidade-visual](https://github.com/jessy3008/doceria-jess_empadas/assets/99359081/5ce62737-bfca-4b5b-9853-cdefc21f9860)
 <ul>
   <li><h3>Sobre</h3> Projeto das matérias: Autoria Web & Programação com Acesso a Banco de Dados
 (IFRN - 23.2). Trata-se de uma aplicação web para a gestão de uma doceria, que oferece controle de vendas e facilita compras.</li> 
