@@ -15,6 +15,10 @@
     <li>Mobile: https://www.figma.com/file/7xQbjkBeriDddiXLYmKiDO/wf-mobile---jess-emp?type=design&node-id=2%3A52&mode=design&t=nzPMxbTWfpDhxfRR-1</li>
     <li>Desktop: https://www.figma.com/file/G7QpAgo7BsDaDxQwO9GRwr/wf-desktop---jess-emp?type=design&node-id=0%3A1&mode=design&t=ldtaU1e3Qlxvaabf-1</li>
   </ul>
+  <li><h3>Apresentações</h3></li>
+  <ul>
+    <li>https://www.canva.com/design/DAF3DtQPBRE/ANDoOiXlWNNpwAUinvgnlg/edit?utm_content=DAF3DtQPBRE&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton</li>
+  </ul>
 </ul>
 
 
