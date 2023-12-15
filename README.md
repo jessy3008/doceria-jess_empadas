@@ -5,10 +5,10 @@
 (IFRN - 23.2). Trata-se de uma aplicação web para a gestão de uma doceria, que oferece controle de vendas e facilita compras.</li> 
   <li><h3>Devs</h3></li>
   <ul>
-    <li>Abne Lucas [@AbneSantos]</li>
-    <li>Jennifer Domingos [@jenniferkaroline]</li>
-    <li>Jessica Nascimento [@jessy3008]</li>
-    <li>Raul Gabriel [@raulzinho123]</li>
+    <li>Abne Lucas @AbneSantos </li>
+    <li>Jennifer Domingos @jenniferkaroline </li>
+    <li>Jessica Nascimento @jessy3008 </li>
+    <li>Raul Gabriel @raulzinho123 </li>
   </ul>
   <li><h3>Wireframes</h3></li>
   <ul>
