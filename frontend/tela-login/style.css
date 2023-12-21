@@ -1,0 +1,32 @@
+* {
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+}
+
+body { 
+    display: flex;
+    width: auto;
+    height: auto;
+    background-color: #FFEFC6;
+    align-items: center;
+    justify-content: center;
+}
+
+.containerL {
+    margin: 100px;
+    display: flex;
+    width: 1300px;
+    height: 700px;
+}
+
+.imgJ > img {
+    width: 540px;
+    height: 700px;
+}
+
+.forms {
+    width: 760px;
+    height: 700px;
+    background-color: #FFDDA7;
+}
