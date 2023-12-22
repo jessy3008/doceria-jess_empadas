@@ -9,25 +9,23 @@
 </head>
 <body>
     <div class="containerL">
-        <div class="login-img">
-            <img src="/frontend/img/jess-boneca.png">
-        </div>
         <div class="login">
             <h1>LOGIN</h1>
             <div class="form-login">
                 <form action="#">
                     <fieldset>
                         <label for="login">Email ou CPF:</label>
-                        <input type="text" id="login" name="login" placeholder=" Insira Email ou CPF">
+                        <input type="text" id="login" name="login" placeholder=" Insira Email ou CPF" required>
                     </fieldset>
                     <fieldset>
                         <label for="senha">Senha:</label>
-                        <input type="text" id="senha" name="senha" placeholder=" Insira sua Senha">
+                        <input type="text" id="senha" name="senha" placeholder=" Insira sua Senha" required>
                     </fieldset>
+                    <button class="loginB" id="but" type="submit"><p>Esqueceu sua senha?</p></button>
+                    <button class="entrar" id="entrar" type="submit"><h3>Entrar</h3></button>
+                    <button class="loginB" id="" type="submit"><p>Cadastrar-se</p></button>
                 </form> 
-                <button class="loginB" type="button"><p>Esqueceu sua senha?</p></button>
-                <button class="entrar" type="button"><h3>Entrar</h3></button>
-                <button class="loginB" type="button"><p>Cadastrar-se</p></button>
+                
             </div>
         </div>
         

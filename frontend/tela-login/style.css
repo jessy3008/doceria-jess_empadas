@@ -6,7 +6,7 @@
 
 @font-face {
     font-family: "montserrat";
-    src: url(/fontes/Montserrat-Bold.otf);
+    src: url(../fontes/Montserrat-Bold.otf);
 }
 
 body { 
@@ -22,18 +22,19 @@ body {
     justify-content: space-between;
     width: 1300px;
     height: 700px;
-    background-color: #AD6336;
+    background-image: url(../img/fundo-login.jpg);
 }
 
 .login {
     display: flex;
     flex-direction: column;
     gap: 30px;
+    margin-left: 800px;
     align-items: center;
     width: 680px;
     height: 700px;
     background-color: #FFDDA7;
-    justify-content: center;
+    justify-content: flex-end;
 }
 
 .login > h1 {
@@ -91,5 +92,10 @@ input {
     border: none;
     border-radius: 8px;
     cursor: pointer;
+}
+
+.entrar:hover {
+    background-color: #FFDDA7;
+    color: #AD6336;
 }
 
