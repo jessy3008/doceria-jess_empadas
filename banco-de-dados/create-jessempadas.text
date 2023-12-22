@@ -1,0 +1,208 @@
+-- MySQL Workbench Forward Engineering
+
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
+
+-- -----------------------------------------------------
+-- Schema jessempadas
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
+-- Schema jessempadas
+-- -----------------------------------------------------
+CREATE SCHEMA IF NOT EXISTS `jessempadas` DEFAULT CHARACTER SET utf8 ;
+USE `jessempadas` ;
+
+-- -----------------------------------------------------
+-- Table `jessempadas`.`fornecedor`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `jessempadas`.`fornecedor` (
+  `cnpj` VARCHAR(18) NOT NULL,
+  `nome` VARCHAR(200) NOT NULL,
+  `email` VARCHAR(200) NOT NULL,
+  `senha` VARCHAR(256) NOT NULL,
+  `telefone` VARCHAR(13) NULL,
+  PRIMARY KEY (`cnpj`),
+  UNIQUE INDEX `cnpj_UNIQUE` (`cnpj` ASC) VISIBLE)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `jessempadas`.`usuario`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `jessempadas`.`usuario` (
+  `cpf` VARCHAR(14) NOT NULL,
+  `nome` VARCHAR(200) NOT NULL,
+  `email` VARCHAR(200) NOT NULL,
+  `senha` VARCHAR(256) NOT NULL,
+  `telefone` VARCHAR(13) NULL,
+  `urlImagem` VARCHAR(256) NULL,
+  UNIQUE INDEX `cpf_UNIQUE` (`cpf` ASC) VISIBLE,
+  PRIMARY KEY (`cpf`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `jessempadas`.`fornecedor`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `jessempadas`.`fornecedor` (
+  `cnpj` VARCHAR(18) NOT NULL,
+  `nome` VARCHAR(200) NOT NULL,
+  `email` VARCHAR(200) NOT NULL,
+  `senha` VARCHAR(256) NOT NULL,
+  `telefone` VARCHAR(13) NULL,
+  PRIMARY KEY (`cnpj`),
+  UNIQUE INDEX `cnpj_UNIQUE` (`cnpj` ASC) VISIBLE)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `jessempadas`.`compra`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `jessempadas`.`compra` (
+  `codcompra` INT NOT NULL AUTO_INCREMENT,
+  `valor` DECIMAL(10,2) NOT NULL,
+  `cpfUsuario` VARCHAR(14) NOT NULL,
+  `datacompra` DATE NOT NULL,
+  `quantidade` INT NOT NULL,
+  PRIMARY KEY (`codcompra`),
+  INDEX `idusuario_idx` (`cpfUsuario` ASC) VISIBLE,
+  CONSTRAINT `idusuario`
+    FOREIGN KEY (`cpfUsuario`)
+    REFERENCES `jessempadas`.`usuario` (`cpf`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `jessempadas`.`categoria`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `jessempadas`.`categoria` (
+  `nome` VARCHAR(200) NOT NULL,
+  `descricao` TEXT NULL,
+  UNIQUE INDEX `nome_UNIQUE` (`nome` ASC) VISIBLE,
+  PRIMARY KEY (`nome`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `jessempadas`.`produto`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `jessempadas`.`produto` (
+  `codproduto` INT NOT NULL,
+  `lote` VARCHAR(200) NULL,
+  `vencimento` DATE NOT NULL,
+  `quantidade` INT NOT NULL,
+  `valor` DECIMAL(10,2) NOT NULL,
+  `nomeCategoria` VARCHAR(200) NOT NULL,
+  `descricao` TEXT NULL,
+  `nome` VARCHAR(200) NOT NULL,
+  `cnpjFornecedor` VARCHAR(18) NOT NULL,
+  UNIQUE INDEX `codproduto_UNIQUE` (`codproduto` ASC) VISIBLE,
+  PRIMARY KEY (`codproduto`),
+  INDEX `idcategoria_idx` (`nomeCategoria` ASC) VISIBLE,
+  INDEX `fk_produto_fornecedor1_idx` (`cnpjFornecedor` ASC) VISIBLE,
+  CONSTRAINT `idcategoria`
+    FOREIGN KEY (`nomeCategoria`)
+    REFERENCES `jessempadas`.`categoria` (`nome`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_produto_fornecedor1`
+    FOREIGN KEY (`cnpjFornecedor`)
+    REFERENCES `jessempadas`.`fornecedor` (`cnpj`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `jessempadas`.`carrinho`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `jessempadas`.`carrinho` (
+  `carrinhoID` INT NOT NULL AUTO_INCREMENT,
+  `cpfUsuario` VARCHAR(14) NOT NULL,
+  `codProduto` INT NOT NULL,
+  `quantidade` INT NOT NULL,
+  `codCompra` INT NOT NULL,
+  INDEX `idusuario_idx` (`cpfUsuario` ASC) VISIBLE,
+  INDEX `codproduto_idx` (`codProduto` ASC) VISIBLE,
+  PRIMARY KEY (`carrinhoID`),
+  INDEX `fk_carrinho_compra1_idx` (`codCompra` ASC) VISIBLE,
+  CONSTRAINT `idusuario1`
+    FOREIGN KEY (`cpfUsuario`)
+    REFERENCES `jessempadas`.`usuario` (`cpf`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `codproduto`
+    FOREIGN KEY (`codProduto`)
+    REFERENCES `jessempadas`.`produto` (`codproduto`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_carrinho_compra1`
+    FOREIGN KEY (`codCompra`)
+    REFERENCES `jessempadas`.`compra` (`codcompra`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `jessempadas`.`imagem`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `jessempadas`.`imagem` (
+  `imagemID` INT NOT NULL AUTO_INCREMENT,
+  `codProduto` INT NOT NULL,
+  `urlImagem` VARCHAR(256) NOT NULL,
+  PRIMARY KEY (`imagemID`),
+  CONSTRAINT `codProduto1`
+    FOREIGN KEY (`codProduto`)
+    REFERENCES `jessempadas`.`produto` (`codproduto`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `jessempadas`.`enderecoUsuario`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `jessempadas`.`enderecoUsuario` (
+  `cpfUsuario` VARCHAR(14) NOT NULL,
+  `rua` VARCHAR(400) NOT NULL,
+  `numero` INT NOT NULL,
+  `bairro` VARCHAR(100) NOT NULL,
+  `cidade` VARCHAR(100) NOT NULL,
+  `estado` VARCHAR(2) NOT NULL,
+  `pais` VARCHAR(100) NULL,
+  CONSTRAINT `cpfUsuario`
+    FOREIGN KEY (`cpfUsuario`)
+    REFERENCES `jessempadas`.`usuario` (`cpf`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `jessempadas`.`enderecoFornecedor`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `jessempadas`.`enderecoFornecedor` (
+  `cnpjFornecedor` VARCHAR(18) NOT NULL,
+  `rua` VARCHAR(400) NOT NULL,
+  `numero` INT NOT NULL,
+  `bairro` VARCHAR(100) NOT NULL,
+  `cidade` VARCHAR(100) NOT NULL,
+  `estado` VARCHAR(2) NOT NULL,
+  `pais` VARCHAR(100) NULL,
+  INDEX `fk_enderecoFornecedor_fornecedor1_idx` (`cnpjFornecedor` ASC) VISIBLE,
+  CONSTRAINT `fk_enderecoFornecedor_fornecedor1`
+    FOREIGN KEY (`cnpjFornecedor`)
+    REFERENCES `jessempadas`.`fornecedor` (`cnpj`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
