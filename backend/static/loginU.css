@@ -6,7 +6,7 @@
 
 @font-face {
     font-family: "montserrat";
-    src: url(../fontes/Montserrat-Bold.otf);
+    src: url(./fontes/Montserrat-Bold.otf);
 }
 
 body { 
@@ -22,7 +22,7 @@ body {
     justify-content: space-between;
     width: 1300px;
     height: 700px;
-    background-image: url(../img/fundo-login.jpg);
+    background-image: url(./img/fundo-login.jpg);
 }
 
 .login {
@@ -59,7 +59,7 @@ fieldset {
     display: flex;
     flex-direction: column;
     border: none;
-    gap: 8px;
+    gap: 10px;
     
 }
 
@@ -73,6 +73,7 @@ input {
     background-color: #FFEFC6;
     width: 335px;
     height: 45px;
+    text-align: center;
 }
 
 .loginB {
@@ -98,5 +99,9 @@ input {
     background-color: #FFDDA7;
     color: #AD6336;
     transition: 1s;
+    border: #AD6336 solid 1px;
 }
 
+#s {
+    padding-top: 10px;
+}
