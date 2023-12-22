@@ -97,5 +97,6 @@ input {
 .entrar:hover {
     background-color: #FFDDA7;
     color: #AD6336;
+    transition: 1s;
 }
 
