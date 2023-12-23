@@ -1,0 +1,71 @@
+* {
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: "montserrat";
+    src: url(./fontes/Montserrat-Bold.otf);
+}
+
+body { 
+    display: flex;
+    background-color: #FFEFC6;
+    align-items: center;
+    justify-content: center;
+}
+
+.container1 {
+    margin: 100px;
+    display: flex;
+    justify-content:center;
+    width: 1300px;
+    height: 700px;
+    background-image: url(./img/fundo-cadastro.png);
+}
+
+.cadastro {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-right: 750px;
+    margin-top: 150px;
+    align-items: center;
+    width: 300px;
+    height: 400px;
+    background-color: #FFDDA7;
+    border-radius: 30px;
+    justify-content:center;
+}
+
+.login > h1 {
+    color: #AD6336;
+    font-family: "montserrat";
+}
+
+.login > img {
+    height: 700px;
+    width: 620px;
+}
+
+.form-login {
+    display: flex;
+    flex-direction: column;
+    width: 335px;
+    height: 400px;
+    font-family: "montserrat";
+}
+
+fieldset {
+    display: flex;
+    flex-direction: column;
+    border: none;
+    gap: 10px;
+    
+}
+
+label {
+    border: none;
+    color: #00000090;
+}
