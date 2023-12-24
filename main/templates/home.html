@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jess Empadas #home</title>
+    <link rel="stylesheet" href="../static/home.css">
+    <link rel="stylesheet" href="../static/fontawesome/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <img id="logo" src="../static/img/logo.png">
+            <form action="#">
+                <input type="text" id="pesquisa" placeholder="Pesquisa...">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </form>
+            <i id="burguer" onclick="clickMenu()"><i class="fa-solid fa-bars"></i></i>
+            <div id="itens" class="menu">
+                <a href="#">Home |</a>
+                <a href="#">Produtos |</a>
+                <a href="#">Sobre |</a>
+                <a href="#">Contato</a>
+            </div> 
+            <div id="A">
+                <i class="fa-solid fa-user"></i> <!--COLOCAR COMO BUTTON-->
+                <i class="fa-solid fa-cart-shopping"></i> <!--COLOCAR COMO BUTTON-->
+            </div>
+        </nav>
+    </header>
+    <script>
+        function mudoutamanho() {
+            if (window.innerWidth >= 768) {
+                itens.style.display = "block"
+            } else {
+                itens.style.display = "none"
+            }
+        }
+        function clickMenu() {
+            if (itens.style.display == 'block') {
+                itens.style.display = "none"
+            } else {
+                itens.style.display = "block"
+            }
+        }
+    </script>
+    </header>
+</body>
+</html>

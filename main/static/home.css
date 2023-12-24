@@ -1,0 +1,82 @@
+* {
+    margin: 0%;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #FFEFC6;
+}
+
+nav {
+    display: flex;
+    background-color: #FFDDA7;
+    width: auto;
+    height: 100px;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 20px;
+    padding-right: 35px;
+}
+
+#logo {
+    height: 90px;
+}
+
+form {
+    color: #704D34;
+    border: 1px solid #00000042;
+    border-radius: 30px;
+    padding-right: 20px;
+}
+
+input {
+    background-color: #FFDDA7;
+    border: none;
+    width: 380px;
+    height: 35px;
+    border-radius: 30px;
+    padding-left: 10px;
+}
+
+#A {
+    display: flex;
+    gap: 20px;
+    font-size: 25px;
+    color: #674228;
+}
+
+#burguer {
+    background-color: #FFEFC6;
+    color: #674228;
+    text-align: center;
+    padding: 10px;
+    display: block;
+    cursor: pointer;
+}
+
+#burguer:hover {
+    background-color: #674228;
+    color: #FFDDA7;
+}
+
+.menu {
+    display: none;
+    font-size: 25px;
+    padding: 10px;
+}
+
+.menu > a:link {
+    text-decoration: none;
+}
+
+@media screen and (min-width: 768px) {
+    #burguer {
+        display: none;
+    }
+    .menu {
+        display: inline-block;
+        padding-right: 4px;
+    }
+
+}
