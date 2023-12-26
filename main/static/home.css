@@ -8,6 +8,12 @@ body {
     background-color: #FFEFC6;
 }
 
+#inverte {
+    display: flex;
+    gap: 90px;
+    align-items: center;
+}
+
 nav {
     display: flex;
     background-color: #FFDDA7;
@@ -47,7 +53,7 @@ input {
 }
 
 #burguer {
-    background-color: #FFEFC6;
+    background-color: #FFDDA7;
     color: #674228;
     text-align: center;
     padding: 10px;
@@ -79,4 +85,41 @@ input {
         padding-right: 4px;
     }
 
+}
+
+@media screen and (max-width: 768px) {
+    #logo {
+        padding-right: 5px;
+    }
+    nav {
+        height: auto;
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    #logo {
+        height: 50px;
+        margin: 0px;
+    }
+    input {
+        width: 220px;
+        height: 25px;
+    }
+
+    #A {
+        font-size: 18px;
+        gap: 10px;
+    }
+
+    #inverte {
+        flex-direction: row-reverse;
+        gap: 10px;
+        padding-left: 20px;
+
+    }
+
+    #burguer {
+        font-size: 20px;
+    }
+    
 }

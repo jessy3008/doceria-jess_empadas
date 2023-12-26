@@ -2,17 +2,18 @@ from flask import Flask, render_template
 
 app = Flask(__name__)
 
-@app.route('/home')
+@app.route('/')
 def home():
     return render_template('home.html')
 
-@app.route('/login')
-def login():
-    return render_template('loginU.html')
+@app.route('/<rota>')
+def jessempadas(rota):
+    if rota ==  'login':
+        return render_template('loginU.html')
+    elif rota == 'cadastro':
+         return render_template('cadastroU.html')
+    
 
-@app.route('/cadastro')
-def home():
-    return render_template('cadastroU.html')
 
 if __name__ == "__main__":
     app.run()
