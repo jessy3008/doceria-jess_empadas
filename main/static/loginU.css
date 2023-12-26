@@ -42,11 +42,6 @@ body {
     font-family: "montserrat";
 }
 
-.login > img {
-    height: 700px;
-    width: 620px;
-}
-
 .form-login {
     display: flex;
     flex-direction: column;
@@ -104,4 +99,51 @@ input {
 
 #s {
     padding-top: 10px;
+}
+
+#loginM {
+    display: none;
+}
+
+@media screen and (max-width: 768px) {
+    
+    body {
+        width: 100%;
+        height: auto;
+    }
+    .containerL {
+        background-image: none;
+        margin: 0%;
+        padding-top: 100px;
+        width: 410px;
+    }
+    .login {
+        margin: 0%;
+        background-color: #AD6336;
+        width: 410px;
+        border-radius: 30px;
+    }
+    .login > h1 {
+        display: none;
+    }
+    #loginM {
+        display: block;
+        width: 410px;
+    }
+    label {
+        color: #FFDDA7;
+    }
+    .loginB {
+        background-color: #AD6336;
+        color: #FFDDA7;
+    }
+    .entrar {
+        background-color: #FFDDA7;
+        color: #AD6336;
+    }
+    .entrar:hover {
+        background-color: #AD6336;
+        color: #FFDDA7;
+        border: #FFDDA7 solid 1px;
+    }
 }
