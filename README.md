@@ -12,6 +12,7 @@
   </ul>
   <li><h3>Wireframes</h3></li>
   <ul>
+    <li>Mockup: https://www.figma.com/file/MhtmamAg2wbbhFelK5WHJp/mockup----jess-empadas?type=design&node-id=0%3A1&mode=design&t=07GmmunZ1g9lZ872-1</li>
     <li>Mobile: https://www.figma.com/file/7xQbjkBeriDddiXLYmKiDO/wf-mobile---jess-emp?type=design&node-id=2%3A52&mode=design&t=nzPMxbTWfpDhxfRR-1</li>
     <li>Desktop: https://www.figma.com/file/G7QpAgo7BsDaDxQwO9GRwr/wf-desktop---jess-emp?type=design&node-id=0%3A1&mode=design&t=ldtaU1e3Qlxvaabf-1</li>
   </ul>
