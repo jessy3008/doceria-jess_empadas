@@ -52,6 +52,16 @@ input {
     color: #674228;
 }
 
+#A > a {
+    text-decoration: none;
+    color: #674228;
+    transition: 0.3s;
+}
+
+#A > a:hover {
+    opacity: 0.7;
+}
+
 #burguer {
     background-color: #FFDDA7;
     color: #674228;
@@ -72,8 +82,14 @@ input {
     padding: 10px;
 }
 
-.menu > a:link {
+#itens > a {
     text-decoration: none;
+    color: #674228;
+    transition: 0.3s;
+}
+
+#itens > a:hover {
+    opacity: 0.7;
 }
 
 @media screen and (min-width: 768px) {
