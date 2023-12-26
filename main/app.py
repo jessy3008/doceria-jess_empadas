@@ -14,6 +14,6 @@ def jessempadas(rota):
          return render_template('cadastroU.html')
     else:
         return render_template('home.html')
-    
+
 if __name__ == "__main__":
     app.run()
