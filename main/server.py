@@ -12,10 +12,11 @@ app.config['MYSQL_PASSWORD'] = 'labinfo'
 app.config['MYSQL_DB'] = 'jessempadas'
 
 # Inicialização do MySQL
-mysql = MySQL(app)
+mysql = MySQL()
+mysql.init_app(app)
 
-@app.route('/', methods=['POST'])
-def cadrasto():
+@app.route('/', methods=['GET', 'POST'])
+def cadastro():
     if request.method == "GET":
         return render_template('cadastroU.html')
     elif request.method == "POST":
@@ -27,8 +28,8 @@ def cadrasto():
         print(request.get)
         cursor = mysql.connection.cursor()
 
-        cursor.execute('INSERT INTO usuarios (cpf, nome, telefone, email, senha) VALUES (%s, %s, %s, %s, %s)', (cpf, nome, telefone, email, senha))
-
+        cursor.execute('INSERT INTO usuario (cpf, nome, telefone, email, senha) VALUES (%s, %s, %s, %s, %s)', (cpf, nome, telefone, email, senha))
+        mysql.connection.commit()
         return redirect(url_for('home'))
     
     return render_template('cadastroU.html')
