@@ -29,25 +29,23 @@ body {
     display: flex;
     flex-direction: column;
     gap: 30px;
-    margin-right: 750px;
+    margin-right: 500px;
     margin-top: 50px;
     align-items: center;
     width: 400px;
-    height: 600px;
+    height: 630px;
     background-color: #FFDDA7;
     border-radius: 30px;
-    justify-content:center;
+    justify-content:flex-start;
 }
 
 .cadastro > h1 {
     color: #AD6336;
     font-family: "montserrat";
+    padding-top: 50px;
 }
 
-.cadastro > img {
-    height: 700px;
-    width: 620px;
-}
+
 
 .form-cadastro {
     display: flex;
@@ -61,11 +59,49 @@ fieldset {
     display: flex;
     flex-direction: column;
     border: none;
-    gap: 10px;
+    gap: 5px;
     
 }
 
 label {
     border: none;
     color: #00000090;
+    padding-top: 10px;
 }
+
+input {
+    border-radius: 8px;
+    background-color: #FFEFC6;
+    width: 335px;
+    height: 45px;
+    text-align: center;
+}
+
+button {
+    display: flex;
+    width: 200px;
+    height: 45px;
+    background-color: #AD6336;
+    color: #FFDDA7;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 20px;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    margin-left: 65px;
+    margin-bottom: 0px;
+}
+
+#but {
+    width: 200px;
+    height: 10px;
+    background-color: #FFDDA7;
+    border: none;
+    color: #AD6336;
+    cursor: pointer;
+    margin-top: opx;
+}
+
+
