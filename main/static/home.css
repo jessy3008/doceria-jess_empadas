@@ -4,6 +4,16 @@
     box-sizing: border-box;
 }
 
+@font-face {
+    font-family: 'montserrat';
+    src: url(../static/fontes/Montserrat-Bold.otf);
+}
+
+@font-face {
+    font-family: 'ahsing';
+    src: url(../static/fontes/Ahsing-Regular.otf);
+}
+
 body {
     background-color: #FFEFC6;
 }
@@ -13,6 +23,7 @@ body {
     gap: 90px;
     align-items: center;
 }
+
 
 nav {
     display: flex;
@@ -98,6 +109,28 @@ nav {
     opacity: 0.7;
 }
 
+#ig {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: auto;
+}
+
+#simbIG {
+    display: flex;
+    height: 35px;
+    width: 35px;
+    border-radius: 100%;
+    background-color: #674228d8;
+    color: #fff;
+    justify-content: center;
+    align-items: center;
+}
+
+#simbIG {
+    font-size: 25px;
+}
+
 @media screen and (min-width: 768px) {
     #burguer {
         display: none;
@@ -147,55 +180,50 @@ nav {
 }
 
 
-    footer {
-        background-color: #FFDDA7;
-        color: #fff;
-        padding: 20px 0;
-        align-content: end;
-        align-items: center;
-    }
+footer {
+    background-color: #FFDDA7;
+    color: #fff;
+    padding: 20px 0;
+    align-content: end;
+    align-items: center;
+    color: #674228;
+}
     
-    .footer-content {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        max-width: 1200px;
-        margin: 0 auto;
-    }
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
     
-    .logo-container img {
-        max-width: 100%;
-        height: 180px;
-        margin-left: 100px;
-    }
+.logo-container img {
+    max-width: 100%;
+    height: 180px;
+    margin-left: 100px;
+}
 
-    .logo-container p {
-        color:#674228;
-        font-size: 15px;
-        text-align: center;
-        margin-left: 90px;
-    }
+.logo-container p {
+    color:#674228;
+    font-size: 15px;
+    text-align: center;
+    margin-left: 90px;
+}
     
-    .contact-info p {
-        margin: 5px 0;
-        color: #674228;
-    }
+.contact-info p {
+    margin: 5px 0;
+    color: #674228;
+}
 
-    .links-footer a {
-        display: flex;
-        color:#674228;
-        font-size: 15px;
-        text-align: center;
-        padding-top: 10px;
-    }
-    .info {
-        font-style: oblique;
-        padding-bottom: 10px;
-    }
 
-    .title {
-        font-weight: bolder;
-    }
+.info {
+    font-style: oblique;
+    padding-bottom: 10px;
+}
+
+.title {
+    font-weight: bolder;
+}
 
 
     
