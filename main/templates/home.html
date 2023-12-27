@@ -17,12 +17,14 @@
             </div>
             <div id="inverte">
                 <i id="burguer" onclick="clickMenu()"><i class="fa-solid fa-bars"></i></i>
-                <div id="itens" class="menu">
-                    <a href="#">Home |</a>
-                    <a href="#">Produtos |</a>
-                    <a href="#">Sobre |</a>
-                    <a href="#">Contato</a>
-                </div> 
+                <div id="overlay" >
+                    <div id="itens" class="menu">
+                        <a href="#">Home |</a>
+                        <a href="#">Produtos |</a>
+                        <a href="#">Sobre |</a>
+                        <a href="#">Contato</a>
+                    </div> 
+                </div>
                 <div id="A">
                     <a href="#"><i class="fa-solid fa-user"></i></a> 
                     <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
@@ -40,6 +42,8 @@
             }
         }
         function clickMenu() {
+            var overlaay = document.getElementById('overlay');
+            var itens = document.getElementById('itens');
             if (itens.style.display == 'block') {
                 itens.style.display = "none"
             } else {
