@@ -16,27 +16,36 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `categoria`
+-- Table structure for table `carrinho`
 --
 
-DROP TABLE IF EXISTS `categoria`;
+DROP TABLE IF EXISTS `carrinho`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `categoria` (
-  `nome` varchar(200) NOT NULL,
-  `descricao` text,
-  PRIMARY KEY (`nome`),
-  UNIQUE KEY `nome_UNIQUE` (`nome`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+CREATE TABLE `carrinho` (
+  `carrinhoID` int NOT NULL AUTO_INCREMENT,
+  `cpfUsuario` varchar(14) NOT NULL,
+  `codProduto` int NOT NULL,
+  `quantidade` int NOT NULL,
+  `codCompra` int NOT NULL,
+  PRIMARY KEY (`carrinhoID`),
+  KEY `idusuario_idx` (`cpfUsuario`),
+  KEY `codproduto_idx` (`codProduto`),
+  KEY `fk_carrinho_compra1_idx` (`codCompra`),
+  CONSTRAINT `codproduto` FOREIGN KEY (`codProduto`) REFERENCES `produto` (`codproduto`),
+  CONSTRAINT `fk_carrinho_compra1` FOREIGN KEY (`codCompra`) REFERENCES `compra` (`codcompra`),
+  CONSTRAINT `idusuario1` FOREIGN KEY (`cpfUsuario`) REFERENCES `usuario` (`cpf`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `categoria`
+-- Dumping data for table `carrinho`
 --
 
-LOCK TABLES `categoria` WRITE;
-/*!40000 ALTER TABLE `categoria` DISABLE KEYS */;
-/*!40000 ALTER TABLE `categoria` ENABLE KEYS */;
+LOCK TABLES `carrinho` WRITE;
+/*!40000 ALTER TABLE `carrinho` DISABLE KEYS */;
+INSERT INTO `carrinho` VALUES (4,'222.222.222-22',9,1,1);
+/*!40000 ALTER TABLE `carrinho` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -48,4 +57,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-12-22 17:19:10
+-- Dump completed on 2023-12-27 16:52:45

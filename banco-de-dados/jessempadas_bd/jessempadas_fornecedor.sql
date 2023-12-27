@@ -16,29 +16,31 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `imagem`
+-- Table structure for table `fornecedor`
 --
 
-DROP TABLE IF EXISTS `imagem`;
+DROP TABLE IF EXISTS `fornecedor`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `imagem` (
-  `imagemID` int NOT NULL AUTO_INCREMENT,
-  `codProduto` int NOT NULL,
-  `urlImagem` varchar(256) NOT NULL,
-  PRIMARY KEY (`imagemID`),
-  KEY `codProduto1` (`codProduto`),
-  CONSTRAINT `codProduto1` FOREIGN KEY (`codProduto`) REFERENCES `produto` (`codproduto`)
+CREATE TABLE `fornecedor` (
+  `cnpj` varchar(18) NOT NULL,
+  `nome` varchar(200) NOT NULL,
+  `email` varchar(200) NOT NULL,
+  `senha` varchar(256) NOT NULL,
+  `telefone` varchar(13) DEFAULT NULL,
+  PRIMARY KEY (`cnpj`),
+  UNIQUE KEY `cnpj_UNIQUE` (`cnpj`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `imagem`
+-- Dumping data for table `fornecedor`
 --
 
-LOCK TABLES `imagem` WRITE;
-/*!40000 ALTER TABLE `imagem` DISABLE KEYS */;
-/*!40000 ALTER TABLE `imagem` ENABLE KEYS */;
+LOCK TABLES `fornecedor` WRITE;
+/*!40000 ALTER TABLE `fornecedor` DISABLE KEYS */;
+INSERT INTO `fornecedor` VALUES ('11.111.111/0001-11','jessempadas','jessempadas@gmail.com','12345678','(84)991487654');
+/*!40000 ALTER TABLE `fornecedor` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -50,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-12-22 17:19:13
+-- Dump completed on 2023-12-27 16:52:46

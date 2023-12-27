@@ -16,38 +16,32 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `produto`
+-- Table structure for table `compra`
 --
 
-DROP TABLE IF EXISTS `produto`;
+DROP TABLE IF EXISTS `compra`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `produto` (
-  `codproduto` int NOT NULL,
-  `lote` varchar(200) DEFAULT NULL,
-  `vencimento` date NOT NULL,
-  `quantidade` int NOT NULL,
+CREATE TABLE `compra` (
+  `codcompra` int NOT NULL AUTO_INCREMENT,
   `valor` decimal(10,2) NOT NULL,
-  `nomeCategoria` varchar(200) NOT NULL,
-  `descricao` text,
-  `nome` varchar(200) NOT NULL,
-  `cnpjFornecedor` varchar(18) NOT NULL,
-  PRIMARY KEY (`codproduto`),
-  UNIQUE KEY `codproduto_UNIQUE` (`codproduto`),
-  KEY `idcategoria_idx` (`nomeCategoria`),
-  KEY `fk_produto_fornecedor1_idx` (`cnpjFornecedor`),
-  CONSTRAINT `fk_produto_fornecedor1` FOREIGN KEY (`cnpjFornecedor`) REFERENCES `fornecedor` (`cnpj`),
-  CONSTRAINT `idcategoria` FOREIGN KEY (`nomeCategoria`) REFERENCES `categoria` (`nome`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+  `cpfUsuario` varchar(14) NOT NULL,
+  `datacompra` date NOT NULL,
+  `quantidade` int NOT NULL,
+  PRIMARY KEY (`codcompra`),
+  KEY `idusuario_idx` (`cpfUsuario`),
+  CONSTRAINT `idusuario` FOREIGN KEY (`cpfUsuario`) REFERENCES `usuario` (`cpf`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `produto`
+-- Dumping data for table `compra`
 --
 
-LOCK TABLES `produto` WRITE;
-/*!40000 ALTER TABLE `produto` DISABLE KEYS */;
-/*!40000 ALTER TABLE `produto` ENABLE KEYS */;
+LOCK TABLES `compra` WRITE;
+/*!40000 ALTER TABLE `compra` DISABLE KEYS */;
+INSERT INTO `compra` VALUES (1,2.50,'222.222.222-22','2023-12-31',1),(2,2.50,'222.222.222-22','2023-12-31',1),(3,2.50,'222.222.222-22','2023-12-31',1);
+/*!40000 ALTER TABLE `compra` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -59,4 +53,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-12-22 17:19:11
+-- Dump completed on 2023-12-27 16:52:46

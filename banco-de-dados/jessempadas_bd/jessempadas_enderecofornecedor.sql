@@ -41,6 +41,7 @@ CREATE TABLE `enderecofornecedor` (
 
 LOCK TABLES `enderecofornecedor` WRITE;
 /*!40000 ALTER TABLE `enderecofornecedor` DISABLE KEYS */;
+INSERT INTO `enderecofornecedor` VALUES ('11.111.111/0001-11','Rua Batista Almeida',456,'Bairro Longa Vista','Goianinha','RN','Brasil');
 /*!40000 ALTER TABLE `enderecofornecedor` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -53,4 +54,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-12-22 17:19:10
+-- Dump completed on 2023-12-27 16:52:47
