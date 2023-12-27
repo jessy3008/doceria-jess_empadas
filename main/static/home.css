@@ -144,11 +144,15 @@ nav {
         font-size: 20px;
     }
     
+}
+
 
     footer {
-        background-color: #333;
+        background-color: #FFDDA7;
         color: #fff;
         padding: 20px 0;
+        align-content: end;
+        align-items: center;
     }
     
     .footer-content {
@@ -161,10 +165,38 @@ nav {
     
     .logo-container img {
         max-width: 100%;
-        height: auto;
+        height: 150px;
+        margin-left: 100px;
+    }
+
+    .logo-container p {
+        color:#674228;
+        font-size: 15px;
+        text-align: center;
+        margin-left: 90px;
     }
     
     .contact-info p {
         margin: 5px 0;
+        color: #674228;
     }
-}
+
+    .links-footer a {
+        display: flex;
+        color:#674228;
+        font-size: 15px;
+        text-align: center;
+        padding-top: 10px;
+    }
+    .info {
+        font-style: oblique;
+        padding-bottom: 10px;
+    }
+
+    .title {
+        font-weight: bolder;
+    }
+
+
+    
+
