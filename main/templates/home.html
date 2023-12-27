@@ -19,15 +19,15 @@
                 <i id="burguer" onclick="clickMenu()"><i class="fa-solid fa-bars"></i></i>
                 <div id="overlay" >
                     <div id="itens" class="menu">
-                        <a href="#">Home |</a>
-                        <a href="#">Produtos |</a>
-                        <a href="#">Sobre |</a>
-                        <a href="#">Contato</a>
+                        <a href="#" onclick="clickMenu()">Home</a>
+                        <a href="#produtos" onclick="clickMenu()">Produtos</a>
+                        <a href="#sobre" onclick="clickMenu()">Sobre</a>
+                        <a href="#footer" onclick="clickMenu()">Contato</a>
                     </div> 
                 </div>
                 <div id="A">
-                    <a href="#"><i class="fa-solid fa-user"></i></a> 
-                    <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
+                    <a href="../templates/loginU.html"><i class="fa-solid fa-user"></i></a> 
+                    <a href="../templates/carrinho.html"><i class="fa-solid fa-cart-shopping"></i></a>
                 </div>
             </div>
         </nav>
@@ -44,17 +44,24 @@
         function clickMenu() {
             var overlaay = document.getElementById('overlay');
             var itens = document.getElementById('itens');
-            if (itens.style.display == 'block') {
-                itens.style.display = "none"
+            if (overlaay.style.display == 'block') {
+                overlaay.style.display = "none"
+                itens.style.display = 'block'
             } else {
-                itens.style.display = "block"
+                overlaay.style.display = "block"
             }
         }
     </script>
     
     <main>
+        <section id="produtos">
+
+        </section>
+        <section id="sobre">
+
+        </section>
     </main>
-    <footer>
+    <footer id="footer">
         <div class="footer-content">
             <div class="logo-container">
                 <img src="../static/img/logo.png" alt="Logo da Sua Empresa">
