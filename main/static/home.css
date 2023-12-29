@@ -263,6 +263,29 @@ footer {
     font-weight: bolder;
 }
 
+#sobre {
+    background-color: #674228;
+}
+
+.textos-sobre {
+    display: flex;
+    align-content: center;
+    justify-content:space-around;
+    background-color:#FDD28E;
+}
+
+.sobretexto {
+    color:#674228;
+    width: 300px;
+    text-align: center;
+
+}
+
+.imgsobre {
+    display: flex;
+    align-items: center;
+
+}
 
     
 
