@@ -16,32 +16,31 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `usuario`
+-- Table structure for table `fornecedor`
 --
 
-DROP TABLE IF EXISTS `usuario`;
+DROP TABLE IF EXISTS `fornecedor`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `usuario` (
-  `cpf` varchar(14) NOT NULL,
+CREATE TABLE `fornecedor` (
+  `cnpj` varchar(18) NOT NULL,
   `nome` varchar(200) NOT NULL,
   `email` varchar(200) NOT NULL,
   `senha` varchar(256) NOT NULL,
   `telefone` varchar(13) DEFAULT NULL,
-  `urlImagem` varchar(256) DEFAULT NULL,
-  PRIMARY KEY (`cpf`),
-  UNIQUE KEY `cpf_UNIQUE` (`cpf`)
+  PRIMARY KEY (`cnpj`),
+  UNIQUE KEY `cnpj_UNIQUE` (`cnpj`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `usuario`
+-- Dumping data for table `fornecedor`
 --
 
-LOCK TABLES `usuario` WRITE;
-/*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
-INSERT INTO `usuario` VALUES ('222.222.222-22','Jose','jose@email.com','senha456','987654321',NULL);
-/*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
+LOCK TABLES `fornecedor` WRITE;
+/*!40000 ALTER TABLE `fornecedor` DISABLE KEYS */;
+INSERT INTO `fornecedor` VALUES ('11.111.111/0001-11','jessempadas','jessempadas@gmail.com','12345678','(84)991487654');
+/*!40000 ALTER TABLE `fornecedor` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -53,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-12-27 16:52:47
+-- Dump completed on 2023-12-28 23:01:38
