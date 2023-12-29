@@ -16,32 +16,33 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `compra`
+-- Table structure for table `enderecofornecedor`
 --
 
-DROP TABLE IF EXISTS `compra`;
+DROP TABLE IF EXISTS `enderecofornecedor`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `compra` (
-  `codcompra` int NOT NULL AUTO_INCREMENT,
-  `valor` decimal(10,2) NOT NULL,
-  `cpfUsuario` varchar(14) NOT NULL,
-  `datacompra` date NOT NULL,
-  `quantidade` int NOT NULL,
-  PRIMARY KEY (`codcompra`),
-  KEY `idusuario_idx` (`cpfUsuario`),
-  CONSTRAINT `idusuario` FOREIGN KEY (`cpfUsuario`) REFERENCES `usuario` (`cpf`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3;
+CREATE TABLE `enderecofornecedor` (
+  `cnpjFornecedor` varchar(18) NOT NULL,
+  `rua` varchar(400) NOT NULL,
+  `numero` int NOT NULL,
+  `bairro` varchar(100) NOT NULL,
+  `cidade` varchar(100) NOT NULL,
+  `estado` varchar(2) NOT NULL,
+  `pais` varchar(100) DEFAULT NULL,
+  KEY `fk_enderecoFornecedor_fornecedor1_idx` (`cnpjFornecedor`),
+  CONSTRAINT `fk_enderecoFornecedor_fornecedor1` FOREIGN KEY (`cnpjFornecedor`) REFERENCES `fornecedor` (`cnpj`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `compra`
+-- Dumping data for table `enderecofornecedor`
 --
 
-LOCK TABLES `compra` WRITE;
-/*!40000 ALTER TABLE `compra` DISABLE KEYS */;
-INSERT INTO `compra` VALUES (1,2.50,'222.222.222-22','2023-12-31',1),(2,2.50,'222.222.222-22','2023-12-31',1),(3,2.50,'222.222.222-22','2023-12-31',1);
-/*!40000 ALTER TABLE `compra` ENABLE KEYS */;
+LOCK TABLES `enderecofornecedor` WRITE;
+/*!40000 ALTER TABLE `enderecofornecedor` DISABLE KEYS */;
+INSERT INTO `enderecofornecedor` VALUES ('11.111.111/0001-11','Rua Batista Almeida',456,'Bairro Longa Vista','Goianinha','RN','Brasil');
+/*!40000 ALTER TABLE `enderecofornecedor` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -53,4 +54,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-12-27 16:52:46
+-- Dump completed on 2023-12-28 23:01:36
