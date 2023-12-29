@@ -13,7 +13,6 @@ def conexaodb():
 
     return conect
 
-
 @app.route('/', methods=['GET', 'POST'])
 def cadastro():
     if request.method == "GET":
@@ -24,10 +23,18 @@ def cadastro():
         email = request.form.get('email')
         telefone = request.form.get('telefone')
         senha = request.form.get('senha')
-        #apartir daqui
-        cursor = conexaodb.connection.cursor()
+
+        # Call the conexaodb function to get the connection
+        connection = conexaodb()
+        cursor = connection.cursor()
+
         cursor.execute('INSERT INTO usuario (cpf, nome, telefone, email, senha) VALUES (%s, %s, %s, %s, %s)', (cpf, nome, telefone, email, senha))
-       
+        connection.commit()
+
+        # Close the cursor and connection
+        cursor.close()
+        connection.close()
+
         return redirect(url_for('home'))
     
     return render_template('cadastroU.html')
@@ -35,6 +42,10 @@ def cadastro():
 @app.route('/home')
 def home():
     return render_template('home.html')
+
+if __name__ == "__main__":
+    app.run()
+
 
 '''@app.route('/')
 def home():
@@ -49,6 +60,3 @@ def jessempadas(rota):
          return render_template('cadastroU.html')
     else:
         return render_template('home.html')'''
-
-if __name__ == "__main__":
-    app.run()
