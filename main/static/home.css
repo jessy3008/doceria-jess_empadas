@@ -38,6 +38,7 @@ nav {
     justify-content: space-between;
     padding-left: 20px;
     padding-right: 35px;
+    font-family: 'montserrat-regular';
 }
 
 #logo {
@@ -144,8 +145,24 @@ nav {
 
 main {
     width: 100%;
-    height: 700px;
+    height: 2600px;
 }
+
+#hero {
+    width: 100%;
+    height: 500px;
+    background-image: url(../static/img/hero.png);
+    background-repeat: no-repeat;
+}
+
+#entreFeS {
+    width: 100%;
+    height: 270px;
+    background-image: url(../static/img/sobre-footer.png);
+    background-repeat: no-repeat;
+    background-color: #FFDDA7;
+}
+
 
 @media screen and (min-width: 768px) {
     #burguer {
@@ -214,38 +231,29 @@ main {
     #burguer {
         font-size: 20px;
     }
+    .footer-content {
+        margin: 0%;
+        gap: 15px;
+    }
     
 }
 
 
 footer {
-    background-color: #FFDDA7;
-    color: #fff;
-    padding: 20px 0;
-    align-content: end;
     align-items: center;
     color: #674228;
 }
     
 .footer-content {
+    background-color: #FFDDA7;
     display: flex;
-    justify-content: space-between;
+    width: 100%;
+    justify-content: space-around;
     align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-    
-.logo-container img {
-    max-width: 100%;
-    height: 180px;
-    margin-left: 100px;
 }
 
-.logo-container p {
-    color:#674228;
-    font-size: 15px;
-    text-align: center;
-    margin-left: 90px;
+#logoF {
+    height: 150px;
 }
     
 .contact-info p {
@@ -255,12 +263,12 @@ footer {
 
 
 .info {
-    font-style: oblique;
+    font-family: 'montserrat-regular';
     padding-bottom: 10px;
 }
 
 .title {
-    font-weight: bolder;
+    font-family: 'montserrat-bold';
 }
 
 #sobre {

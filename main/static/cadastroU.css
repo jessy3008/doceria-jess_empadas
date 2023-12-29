@@ -94,6 +94,10 @@ button {
     margin-bottom: 0px;
 }
 
+#cadastroM {
+    display: none;
+}
+
 #but {
     width: 200px;
     height: 10px;
@@ -101,7 +105,46 @@ button {
     border: none;
     color: #AD6336;
     cursor: pointer;
-    margin-top: opx;
+    margin-top: 12px;
+}
+
+@media screen and (max-width: 768px) {
+    
+    body {
+        width: 100%;
+        height: auto;
+    }
+    .container1 {
+        background-image: none;
+        width: 410px;
+        height: 800px;
+    }
+    .cadastro {
+        margin: 0%;
+        background-color: #AD6336;
+        width: 410px;
+        border-radius: 30px;
+        height: auto;
+    }
+    .cadastro > h1 {
+        display: none;
+    }
+    #cadastroM {
+        display: block;
+        width: 410px;
+        padding-top: 30px;
+    }
+    label {
+        color: #FFEFC6;
+    }
+    #but {
+        background-color: #AD6336;
+        color: #FFEFC6;
+    }
+    #cadastrar {
+        background-color: #FFDDA7;
+        color: #AD6336;
+    }
 }
 
 
