@@ -94,6 +94,10 @@ button {
     margin-bottom: 0px;
 }
 
+#cadastroM {
+    display: none;
+}
+
 #but {
     width: 200px;
     height: 10px;
@@ -120,9 +124,15 @@ button {
         background-color: #AD6336;
         width: 410px;
         border-radius: 30px;
+        height: auto;
     }
     .cadastro > h1 {
-        color: #FFDDA7;
+        display: none;
+    }
+    #cadastroM {
+        display: block;
+        width: 410px;
+        padding-top: 30px;
     }
     label {
         color: #FFEFC6;
