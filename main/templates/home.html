@@ -25,9 +25,13 @@
                         <a href="#footer" onclick="clickMenu()">Contato</a>
                     </div> 
                 </div>
-                <div id="A">
-                    <a href="../templates/loginU.html"><i class="fa-solid fa-user"></i></a> 
-                    <a href="../templates/carrinho.html"><i class="fa-solid fa-cart-shopping"></i></a>
+                <div id="F">
+                    <form method="POST" action="{{ url_for('loginU') }}">
+                        <button type="submit" name="user" ><i class="fa-solid fa-user"></i></button> 
+                    </form>
+                    <form method="POST" action="{{ url_for('carrinho') }}">
+                        <button type="submit" name="carrinho" ><i class="fa-solid fa-cart-shopping"></i></button>
+                    </form>
                 </div>
             </div>
         </nav>

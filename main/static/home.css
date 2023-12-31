@@ -68,20 +68,26 @@ nav {
     color: #674228d5;
 }
 
-#A {
+#F {
     display: flex;
     gap: 20px;
-    font-size: 25px;
-    color: #674228;
 }
 
-#A > a {
-    text-decoration: none;
+form > button {
+    border: none;
+    background-color: #FFDDA7;
+    color: #674228;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.bH {
+    border: none;
     color: #674228;
     transition: 0.3s;
 }
 
-#A > a:hover {
+.bH > a:hover {
     opacity: 0.7;
 }
 
@@ -211,10 +217,6 @@ main {
         height: 25px;
     }
 
-    #A {
-        font-size: 18px;
-        gap: 10px;
-    }
 
     #inverte {
         flex-direction: row-reverse;

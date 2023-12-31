@@ -1,10 +1,10 @@
 from flask import Flask, render_template, request, url_for, redirect
 
-import mysql.connector
+#import mysql.connector
 
 app = Flask(__name__)
 
-def conexaodb():
+'''def conexaodb():
     conect = mysql.connector.connect(
     MYSQL_HOST = '127.0.0.1',
     MYSQL_USER = 'root',
@@ -37,12 +37,21 @@ def cadastro():
 
         return redirect(url_for('home'))
     
-    return render_template('cadastroU.html')
+    return render_template('cadastroU.html')'''
 
 
-'''@app.route('/')
+@app.route('/')
 def home():
     return render_template('home.html')
+
+
+@app.route('/loginU', methods=['POST'])
+def loginU():
+    return render_template('loginU.html')
+
+@app.route('/carrinho', methods=['POST'])
+def carrinho():
+    return render_template('carrinho.html')
 
 @app.route('/<rota>')
 def jessempadas(rota):
@@ -51,7 +60,7 @@ def jessempadas(rota):
     elif rota == 'cadastro':
          return render_template('cadastroU.html')
     else:
-        return render_template('home.html')'''
+        return render_template('home.html')
     
 if __name__ == "__main__":
     app.run()
