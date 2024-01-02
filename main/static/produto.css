@@ -1,0 +1,94 @@
+* {
+    margin: 0%;
+    box-sizing: border-box;
+    color: #442c1a;
+    font-family: montserrat;
+}
+
+@font-face {
+    font-family: "montserrat";
+    src: url(./fontes/Montserrat-Regular.otf);
+}   
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #FFEFC6;
+  }
+
+.product-info h2 {
+    padding-top: 25px;
+    font-size: 20px;
+    padding-bottom: 10px;
+}
+.product-container{
+    display: flex;
+    margin-top: 150px;
+    justify-content: center;
+    align-items: center;
+     
+}
+  
+.imgproduto {
+    height: 400px;
+    width: 550px;
+    max-width: 570px;
+    background-color: #674228;
+    padding: 2px;
+    border-radius: 8px;
+    box-shadow: 0 0 100px rgba(0, 0, 0, 0.1);
+  }
+  
+.product-info {
+    height: 400px;
+    margin-left: 50px;
+
+  }  
+
+#size {
+    height: 37px;
+    width: 200px;
+    border-radius: 30px;
+    background-color: #E8E8E8;
+}
+
+#flavor {
+    height: 37px;
+    width: 200px;
+    border-radius: 30px;
+    background-color: #E8E8E8;
+
+}
+
+.product-info hr {
+    border: 1px solid #DFB470;
+    margin: 10px 0;
+  }
+
+
+  select, input {
+    padding: 10px;
+    margin-bottom: 16px;
+    border: 1px solid #674228;
+    border-radius: 50px;
+    
+  }
+  
+  input[type="submit"] {
+    background-color: #DFB470 ;
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    margin-left: 400px;
+
+}
+
+.product-info h3 {
+    margin-left: 415px;
+    margin-top: 45px;
+
+}
+  
+  input[type="submit"]:hover {
+    background-color: #674228;
+  }
