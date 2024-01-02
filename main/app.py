@@ -74,11 +74,16 @@ def login():
     login_data = request.form.get('login')
     senha = request.form.get('senha')
 
+    cadastra_se = request.form.get('cadastra')
+
     connection = conexaodb()
     cursor = connection.cursor()
 
     cursor.execute('SELECT * FROM usuario WHERE (cpf = %s OR email = %s) AND senha = %s', (login_data, login_data, senha))
     user = cursor.fetchone()
+
+    if cadastra_se == True:
+        return redirect(url_for('cadastro'))
 
     if user:
         cursor.close()
