@@ -154,6 +154,18 @@ def adm():
         connection.close()
         return render_template('loginADM.html', error_message="Credenciais inválidas. Tente novamente.")
 
+@app.route('/produtos')
+def produtos():
+    connection = mysql.connector.connect(**db_config)
+    cursor = connection.cursor()
+
+    cursor.execute("SELECT * FROM produto")
+    produtos = cursor.fetchall()
+
+    cursor.close()
+    connection.close()
+
+    return render_template('home.html', produtos=produtos)
 
 
 if __name__ == '__main__':
