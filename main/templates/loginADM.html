@@ -13,10 +13,10 @@
             <img id="loginM" src="../static/img/loginM.png">
             <h1>LOGIN</h1>
             <div class="form-login">
-                <form action="/login" method="POST">
+                <form action="/adm" method="POST">
                     <fieldset>
-                        <label for="login">Email ou CPF:</label>
-                        <input type="text" id="login" name="login" placeholder=" Insira Email ou CPF" required>
+                        <label for="login">Email ou CNPJ:</label>
+                        <input type="text" id="login" name="login" placeholder=" Insira Email ou CNPJ" required>
                     </fieldset>
                     <fieldset>
                         <label id="s" for="senha">Senha:</label>
@@ -24,8 +24,9 @@
                     </fieldset>
                     <button class="loginB" id="but" type="submit"><p>Esqueceu sua senha?</p></button>
                     <button class="entrar" id="entrar" type="submit"><h3>Entrar</h3></button>
-                    <button class="loginB" id="cadastra" type="submit"><p><a href="{{ url_for('cadastro') }}" id="cdst">Cadastrar-se</a></p></button>
+                    <button class="loginB" id="cadastrar" type="submit"><p><a href="{{ url_for('adm_cadastra') }}" id="cdst">Cadastrar-se</a></p></button>
                 </form>
+    
                 
             </div>
         </div>

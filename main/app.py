@@ -36,8 +36,13 @@ def jessempadas(rota):
         return render_template('loginU.html')
     elif rota == 'cadastro':
          return render_template('cadastroU.html')
+    
+    elif rota == 'adm':
+        return render_template('loginADM.html')
+
     else:
         return render_template('home.html')
+
 
 
 
@@ -53,7 +58,7 @@ def cadastro():
         telefone = request.form.get('telefone')
         senha = request.form.get('senha')
        
-        
+
         connection = conexaodb()
         cursor = connection.cursor()
         
@@ -69,6 +74,7 @@ def cadastro():
     return render_template('cadastroU.html')
 
 
+
 @app.route('/login', methods=['POST'])
 def login():
     login_data = request.form.get('login')
@@ -82,17 +88,72 @@ def login():
     cursor.execute('SELECT * FROM usuario WHERE (cpf = %s OR email = %s) AND senha = %s', (login_data, login_data, senha))
     user = cursor.fetchone()
 
-    if cadastra_se == True:
+    if cadastra_se == 'True':  
         return redirect(url_for('cadastro'))
 
-    if user:
+    elif user:
         cursor.close()
         connection.close()
         return redirect(url_for('home'))
     else:
         cursor.close()
         connection.close()
-        return render_template('loginU.html', error_message="Credenciais inválidas. Tente novamente.")
+        error = "Credenciais inválidas. Tente novamente."
+        return render_template('loginU.html', error=error)
+
+
+
+@app.route('/adm_cadastra', methods=['GET', 'POST'])
+def adm_cadastra():
+    if request.method == "GET":
+        return render_template('adm.html')
+    elif request.method == "POST":
+        cnpj = request.form.get('cnpj')
+        nome = request.form.get('nome')
+        email = request.form.get('email')
+        senha = request.form.get('senha')
+        telefone = request.form.get('telefone')
+       
+        
+        connection = conexaodb()
+        cursor = connection.cursor()
+        
+        cursor.execute('INSERT INTO fonecedor (cnpj, nome, telefone, email, senha) VALUES (%s, %s, %s, %s, %s)', (cnpj, nome, telefone, email, senha))
+        connection.commit()
+        
+        
+        cursor.close()
+        connection.close()
+
+        return redirect(url_for('cadastrap')) # criar rt
+
+    return render_template('adm.html')
+
+@app.route('/adm', methods=['POST'])
+def adm():
+    login_data = request.form.get('login')
+    senha = request.form.get('senha')
+
+    cadastra_se = request.form.get('cadastra')
+
+    connection = conexaodb()
+    cursor = connection.cursor()
+
+    cursor.execute('SELECT * FROM fornecedor WHERE (cnpj = %s OR email = %s) AND senha = %s', (login_data, login_data, senha))
+    user = cursor.fetchone()
+
+    if cadastra_se == 'True':  
+        return redirect(url_for('cadastrarp'))  # criar rota
+
+    if user:
+        cursor.close()
+        connection.close()
+        return redirect(url_for('cadastrarp'))  # criar rota
+    else:
+        cursor.close()
+        connection.close()
+        return render_template('loginADM.html', error_message="Credenciais inválidas. Tente novamente.")
+
 
 
 if __name__ == '__main__':

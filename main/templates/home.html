@@ -61,9 +61,17 @@
         <section id="hero">
 
         </section>
-        <section id="produtos"> <!-- Aqui ficam os cards dos produtos -->
-
+        <section id="produtos">
+            {% for produto in produtos %}
+                <div class="card-produto">
+                    <div class="card-imgP">
+                        <img src="{{ produto.imagem }}">
+                    </div>
+                    <div class="nomeP"><p>{{ produto.nome }}</p></div>
+                </div>
+            {% endfor %}
         </section>
+
     </main>
     
     <footer id="footer">

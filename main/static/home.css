@@ -337,3 +337,34 @@ footer {
     width: 500px;
     justify-content: space-between;
 }
+
+#produtos {
+    width: 100%;
+    display: flex;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+.card-imgP {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 250px;
+    height: 275px;
+    background-color: #DFB470;
+    z-index: 0;
+    position:sticky;
+}
+
+.nomeP {
+    background-color: white;
+    color: #674228;
+    width: 250px;
+    display: flex;
+    justify-content: center;
+    z-index: 1;
+    position:absolute;
+    margin-top: -50px;
+}
