@@ -57,15 +57,16 @@ def cadastro():
         email = request.form.get('email')
         telefone = request.form.get('telefone')
         senha = request.form.get('senha')
-       
+
+        hashed_password = hashlib.sha256(senha.encode()).hexdigest()
 
         connection = conexaodb()
         cursor = connection.cursor()
-        
-        cursor.execute('INSERT INTO usuario (cpf, nome, telefone, email, senha) VALUES (%s, %s, %s, %s, %s)', (cpf, nome, telefone, email, senha))
+
+        cursor.execute('INSERT INTO usuario (cpf, nome, telefone, email, senha) VALUES (%s, %s, %s, %s, %s)',
+                       (cpf, nome, telefone, email, hashed_password))
         connection.commit()
-        
-        
+
         cursor.close()
         connection.close()
 
@@ -118,14 +119,14 @@ def adm_cadastra():
         connection = conexaodb()
         cursor = connection.cursor()
         
-        cursor.execute('INSERT INTO fonecedor (cnpj, nome, telefone, email, senha) VALUES (%s, %s, %s, %s, %s)', (cnpj, nome, telefone, email, senha))
+        cursor.execute('INSERT INTO fornecedor (cnpj, nome, telefone, email, senha) VALUES (%s, %s, %s, %s, %s)', (cnpj, nome, telefone, email, senha))
         connection.commit()
         
         
         cursor.close()
         connection.close()
 
-        return redirect(url_for('cadastrap')) # criar rt
+        return redirect(url_for('home')) # criar rt
 
     return render_template('adm.html')
 
