@@ -191,6 +191,38 @@ def produtos():
 
     return render_template('home.html', produtos=produtos)
 
+@app.route('/cadastrarP', methods=['GET', 'POST'])
+def cadastrarP():
+    if request.method == "GET":
+        return render_template('cadastrarP.html')
+    elif request.method == "POST":
+        cnpj = request.form.get('cnpj')
+        categoria = request.form.get('categoria')
+        nome = request.form.get('nome')
+        codproduto = request.form.get('codproduto')
+        descricao = request.form.get('descricao')
+        lote = request.form.get('lote')
+        vencimento = request.form.get('vencimento')
+        quantidade = request.form.get('quantidade')
+        valor = request.form.get('valor')
+
+        connection = conexaodb()
+        cursor = connection.cursor()
+
+        cursor.execute('INSERT INTO produto (codproduto, lote, vencimento, quantidade, valor, nomeCategoria, descricao, nome, cnpjFornecedor) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)',
+                       (codproduto, lote, vencimento, quantidade, valor, categoria, descricao, nome, cnpj))
+        connection.commit()
+
+        cursor.close()
+        connection.close()
+
+        return redirect(url_for('produtos'))
+
+    return render_template('cadastrarP.html')
+
+
+    
+
 
 if __name__ == '__main__':
     app.run(debug=True)
