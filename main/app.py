@@ -156,7 +156,7 @@ def adm():
 
 @app.route('/produtos')
 def produtos():
-    connection = mysql.connector.connect(**db_config)
+    connection = mysql.connector.connect(conexaodb)
     cursor = connection.cursor()
 
     cursor.execute("SELECT * FROM produto")
