@@ -4,6 +4,11 @@ import mysql.connector
 
 import hashlib
 
+from werkzeug.utils import secure_filename 
+
+import os 
+
+
 
 app = Flask(__name__)
 
@@ -149,7 +154,7 @@ def adm_cadastra():
         cursor.close()
         connection.close()
 
-        return redirect(url_for('home')) # criar rt
+        return redirect(url_for('cadastrarP')) # criar rt
 
     return render_template('adm.html')
 
@@ -167,12 +172,12 @@ def adm():
     user = cursor.fetchone()
 
     if cadastra_se == 'True':  
-        return redirect(url_for('cadastrarp'))  # criar rota
+        return redirect(url_for('cadastrarP'))  # criar rota
 
     if user:
         cursor.close()
         connection.close()
-        return redirect(url_for('cadastrarp'))  # criar rota
+        return redirect(url_for('cadastrarP'))  # criar rota
     else:
         cursor.close()
         connection.close()
@@ -193,6 +198,18 @@ def cadastrarP():
         vencimento = request.form.get('vencimento')
         quantidade = request.form.get('quantidade')
         valor = request.form.get('valor')
+        img = request.files['img']
+
+        filename = secure_filename(img.filename)
+        extensao = img.filename.rsplit('.',1)[1]
+
+
+        url = f'static/img/{filename}.{extensao}'
+
+
+
+        img.save(url)
+            
 
         connection = conexaodb()
         cursor = connection.cursor()
@@ -200,6 +217,8 @@ def cadastrarP():
         cursor.execute('INSERT INTO produto (codproduto, lote, vencimento, quantidade, valor, nomeCategoria, descricao, nome, cnpjFornecedor) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)',
                        (codproduto, lote, vencimento, quantidade, valor, categoria, descricao, nome, cnpj))
         connection.commit()
+
+        cursor.execute('INSERT INTO imagem (codProduto, urlImagem) VALUES (%s, %s)', (codproduto, url))
 
         cursor.close()
         connection.close()

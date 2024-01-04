@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+'<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -9,7 +9,7 @@
 <body>
 
 <div class="container">
-    <form id="formCadastro" method="POST" action="{{ url_for('cadastrarP') }}">
+    <form id="formCadastro" method="POST" action="{{ url_for('cadastrarP') }}" enctype="multipart/form-data">
         <h2>Cadastro de Produto</h2>
 
         <label for="cnpj">CNPJ:</label>
@@ -39,9 +39,12 @@
         <label for="valor">Valor:</label>
         <input type="number" id="valor" name="valor" step="0.01" required>
 
+        <label for="img">Imagem do Produto:</label>
+        <input type="file" id="img" name="img" required accept="image/*">
+
         <button type="submit">Cadastrar Produto</button>
     </form>
 </div>
 
 </body>
-</html>
+</html>'
