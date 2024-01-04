@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 8.0.33, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.30, for Win64 (x86_64)
 --
 -- Host: localhost    Database: jessempadas
 -- ------------------------------------------------------
--- Server version	8.0.35
+-- Server version	8.0.30
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -16,32 +16,27 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `compra`
+-- Table structure for table `categoria`
 --
 
-DROP TABLE IF EXISTS `compra`;
+DROP TABLE IF EXISTS `categoria`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `compra` (
-  `codcompra` int NOT NULL AUTO_INCREMENT,
-  `valor` decimal(10,2) NOT NULL,
-  `cpfUsuario` varchar(14) NOT NULL,
-  `datacompra` date NOT NULL,
-  `quantidade` int NOT NULL,
-  PRIMARY KEY (`codcompra`),
-  KEY `idusuario_idx` (`cpfUsuario`),
-  CONSTRAINT `idusuario` FOREIGN KEY (`cpfUsuario`) REFERENCES `usuario` (`cpf`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3;
+CREATE TABLE `categoria` (
+  `nome` varchar(200) NOT NULL,
+  `descricao` text,
+  PRIMARY KEY (`nome`),
+  UNIQUE KEY `nome_UNIQUE` (`nome`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `compra`
+-- Dumping data for table `categoria`
 --
 
-LOCK TABLES `compra` WRITE;
-/*!40000 ALTER TABLE `compra` DISABLE KEYS */;
-INSERT INTO `compra` VALUES (1,2.50,'222.222.222-22','2023-12-31',1),(2,2.50,'222.222.222-22','2023-12-31',1),(3,2.50,'222.222.222-22','2023-12-31',1);
-/*!40000 ALTER TABLE `compra` ENABLE KEYS */;
+LOCK TABLES `categoria` WRITE;
+/*!40000 ALTER TABLE `categoria` DISABLE KEYS */;
+/*!40000 ALTER TABLE `categoria` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -53,4 +48,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-12-28 23:01:34
+-- Dump completed on 2024-01-04 18:12:40

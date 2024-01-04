@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 8.0.33, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.30, for Win64 (x86_64)
 --
 -- Host: localhost    Database: jessempadas
 -- ------------------------------------------------------
--- Server version	8.0.35
+-- Server version	8.0.30
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -16,31 +16,38 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `fornecedor`
+-- Table structure for table `produto`
 --
 
-DROP TABLE IF EXISTS `fornecedor`;
+DROP TABLE IF EXISTS `produto`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `fornecedor` (
-  `cnpj` varchar(18) NOT NULL,
+CREATE TABLE `produto` (
+  `codproduto` int NOT NULL,
+  `lote` varchar(200) DEFAULT NULL,
+  `vencimento` date NOT NULL,
+  `quantidade` int NOT NULL,
+  `valor` decimal(10,2) NOT NULL,
+  `nomeCategoria` varchar(200) NOT NULL,
+  `descricao` text,
   `nome` varchar(200) NOT NULL,
-  `email` varchar(200) NOT NULL,
-  `senha` varchar(256) NOT NULL,
-  `telefone` varchar(13) DEFAULT NULL,
-  PRIMARY KEY (`cnpj`),
-  UNIQUE KEY `cnpj_UNIQUE` (`cnpj`)
+  `cnpjFornecedor` varchar(18) NOT NULL,
+  PRIMARY KEY (`codproduto`),
+  UNIQUE KEY `codproduto_UNIQUE` (`codproduto`),
+  KEY `idcategoria_idx` (`nomeCategoria`),
+  KEY `fk_produto_fornecedor1_idx` (`cnpjFornecedor`),
+  CONSTRAINT `fk_produto_fornecedor1` FOREIGN KEY (`cnpjFornecedor`) REFERENCES `fornecedor` (`cnpj`),
+  CONSTRAINT `idcategoria` FOREIGN KEY (`nomeCategoria`) REFERENCES `categoria` (`nome`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `fornecedor`
+-- Dumping data for table `produto`
 --
 
-LOCK TABLES `fornecedor` WRITE;
-/*!40000 ALTER TABLE `fornecedor` DISABLE KEYS */;
-INSERT INTO `fornecedor` VALUES ('11.111.111/0001-11','jessempadas','jessempadas@gmail.com','12345678','(84)991487654');
-/*!40000 ALTER TABLE `fornecedor` ENABLE KEYS */;
+LOCK TABLES `produto` WRITE;
+/*!40000 ALTER TABLE `produto` DISABLE KEYS */;
+/*!40000 ALTER TABLE `produto` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -52,4 +59,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-12-28 23:01:38
+-- Dump completed on 2024-01-04 18:12:40

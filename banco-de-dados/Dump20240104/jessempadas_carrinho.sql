@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 8.0.33, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.30, for Win64 (x86_64)
 --
 -- Host: localhost    Database: jessempadas
 -- ------------------------------------------------------
--- Server version	8.0.35
+-- Server version	8.0.30
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -35,7 +35,7 @@ CREATE TABLE `carrinho` (
   CONSTRAINT `codproduto` FOREIGN KEY (`codProduto`) REFERENCES `produto` (`codproduto`),
   CONSTRAINT `fk_carrinho_compra1` FOREIGN KEY (`codCompra`) REFERENCES `compra` (`codcompra`),
   CONSTRAINT `idusuario1` FOREIGN KEY (`cpfUsuario`) REFERENCES `usuario` (`cpf`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -44,7 +44,6 @@ CREATE TABLE `carrinho` (
 
 LOCK TABLES `carrinho` WRITE;
 /*!40000 ALTER TABLE `carrinho` DISABLE KEYS */;
-INSERT INTO `carrinho` VALUES (4,'222.222.222-22',9,1,1);
 /*!40000 ALTER TABLE `carrinho` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -57,4 +56,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-12-28 23:01:36
+-- Dump completed on 2024-01-04 18:12:40

@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 8.0.33, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.30, for Win64 (x86_64)
 --
 -- Host: localhost    Database: jessempadas
 -- ------------------------------------------------------
--- Server version	8.0.35
+-- Server version	8.0.30
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -16,28 +16,31 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `categoria`
+-- Table structure for table `usuario`
 --
 
-DROP TABLE IF EXISTS `categoria`;
+DROP TABLE IF EXISTS `usuario`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `categoria` (
+CREATE TABLE `usuario` (
+  `cpf` varchar(14) NOT NULL,
   `nome` varchar(200) NOT NULL,
-  `descricao` text,
-  PRIMARY KEY (`nome`),
-  UNIQUE KEY `nome_UNIQUE` (`nome`)
+  `email` varchar(200) NOT NULL,
+  `senha` varchar(256) NOT NULL,
+  `telefone` varchar(13) DEFAULT NULL,
+  `urlImagem` varchar(256) DEFAULT NULL,
+  PRIMARY KEY (`cpf`),
+  UNIQUE KEY `cpf_UNIQUE` (`cpf`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `categoria`
+-- Dumping data for table `usuario`
 --
 
-LOCK TABLES `categoria` WRITE;
-/*!40000 ALTER TABLE `categoria` DISABLE KEYS */;
-INSERT INTO `categoria` VALUES ('Bolos','Temos bolos de 1kg-R$60,00, 3kg-R$170,00 e de 5kg-R$280,00'),('caixinhas presentáveis','caixinhas com empadas deliciosas para presentear a pessoa que\nvocê ama'),('cheesecake','Serve até 4 pessoas'),('Combos','Um combo de empadas com diversos sabores é uma proposta de dar água na\nboca. Imagino uma caixa delicadamente arranjada, exibindo uma variedade de empadas\nque atiçam os sentidos.'),('empadas doces','sabores simples e especiais tamanhos pequenos e grandes que vão de\nR$2,00-R$4,50'),('empadas salgadas','temos apenas o sabor frango de 90g que o valor é de R$3,50 e de\n200g que em o valor de R$7,50'),('tortas salgadas','De 10 fatias que está de R$40,00 e de 20 fatias que está por R$70,00'),('tortinhas','Sabores chocolate e oreo que estão apenas por R$6,00');
-/*!40000 ALTER TABLE `categoria` ENABLE KEYS */;
+LOCK TABLES `usuario` WRITE;
+/*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
+/*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -49,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-12-28 23:01:36
+-- Dump completed on 2024-01-04 18:12:41

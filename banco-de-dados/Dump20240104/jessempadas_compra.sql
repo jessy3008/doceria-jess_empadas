@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 8.0.33, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.30, for Win64 (x86_64)
 --
 -- Host: localhost    Database: jessempadas
 -- ------------------------------------------------------
--- Server version	8.0.35
+-- Server version	8.0.30
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -16,33 +16,31 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `enderecousuario`
+-- Table structure for table `compra`
 --
 
-DROP TABLE IF EXISTS `enderecousuario`;
+DROP TABLE IF EXISTS `compra`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `enderecousuario` (
+CREATE TABLE `compra` (
+  `codcompra` int NOT NULL AUTO_INCREMENT,
+  `valor` decimal(10,2) NOT NULL,
   `cpfUsuario` varchar(14) NOT NULL,
-  `rua` varchar(400) NOT NULL,
-  `numero` int NOT NULL,
-  `bairro` varchar(100) NOT NULL,
-  `cidade` varchar(100) NOT NULL,
-  `estado` varchar(2) NOT NULL,
-  `pais` varchar(100) DEFAULT NULL,
-  KEY `cpfUsuario` (`cpfUsuario`),
-  CONSTRAINT `cpfUsuario` FOREIGN KEY (`cpfUsuario`) REFERENCES `usuario` (`cpf`)
+  `datacompra` date NOT NULL,
+  `quantidade` int NOT NULL,
+  PRIMARY KEY (`codcompra`),
+  KEY `idusuario_idx` (`cpfUsuario`),
+  CONSTRAINT `idusuario` FOREIGN KEY (`cpfUsuario`) REFERENCES `usuario` (`cpf`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `enderecousuario`
+-- Dumping data for table `compra`
 --
 
-LOCK TABLES `enderecousuario` WRITE;
-/*!40000 ALTER TABLE `enderecousuario` DISABLE KEYS */;
-INSERT INTO `enderecousuario` VALUES ('222.222.222-22','Rua General Avelino',123,'Bairro Petrolina','Bom Jesus','AC','Brasil'),('222.222.222-22','Rua General Avelino',123,'Bairro Petrolina','Bom Jesus','AC','Brasil'),('222.222.222-22','Rua General Avelino',123,'Bairro Petrolina','Bom Jesus','AC','Brasil');
-/*!40000 ALTER TABLE `enderecousuario` ENABLE KEYS */;
+LOCK TABLES `compra` WRITE;
+/*!40000 ALTER TABLE `compra` DISABLE KEYS */;
+/*!40000 ALTER TABLE `compra` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -54,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-12-28 23:01:36
+-- Dump completed on 2024-01-04 18:12:41
