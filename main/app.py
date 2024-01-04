@@ -2,6 +2,9 @@ from flask import Flask, render_template, request, url_for, redirect
 
 import mysql.connector
 
+import hashlib
+
+
 app = Flask(__name__)
 
 def conexaodb():
@@ -21,27 +24,47 @@ def home():
     return render_template('home.html')
 
 
-
-@app.route('/loginU', methods=['POST'])
-def loginU():
-    return render_template('loginU.html')
-
 @app.route('/carrinho', methods=['POST'])
 def carrinho():
     return render_template('carrinho.html')
 
-@app.route('/<rota>')
-def jessempadas(rota):
-    if rota ==  'login':
-        return render_template('loginU.html')
-    elif rota == 'cadastro':
-         return render_template('cadastroU.html')
-    
-    elif rota == 'adm':
-        return render_template('loginADM.html')
 
+
+def hash_password(password):
+    return hashlib.sha256(password.encode()).hexdigest()
+
+
+def verify_password(hashed_password, plain_password):
+ 
+    return hashed_password == hash_password(plain_password)
+
+
+
+@app.route('/loginU', methods=['POST'])
+def loginU():
+    login_data = request.form.get('login')
+    senha = request.form.get('senha')
+
+    cadastra_se = request.form.get('cadastra')
+
+    connection = conexaodb()
+    cursor = connection.cursor()
+
+    cursor.execute('SELECT senha FROM usuario WHERE cpf = %s OR email = %s', (login_data, login_data))
+    user = cursor.fetchone()
+
+    if cadastra_se == 'True':
+        return redirect(url_for('cadastro'))
+
+    elif user and verify_password(user[0], senha): 
+        cursor.close()
+        connection.close()
+        return redirect(url_for('home'))
     else:
-        return render_template('home.html')
+        cursor.close()
+        connection.close()
+        error = "Credenciais inválidas. Tente novamente."
+        return render_template('loginU.html', error=error)
 
 
 
