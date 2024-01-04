@@ -88,6 +88,23 @@ input {
     border: none;
     border-radius: 8px;
     cursor: pointer;
+    margin-top: 20px;
+}
+
+.homeButton {
+    width: 45px;
+    height: 30px;
+    display: flex;
+    color: #FFDDA7;
+    border: none;
+    background-color: #AD6336;
+    cursor: pointer;
+    align-items: center;
+    margin: 20px;
+}
+
+.homeButton > i {
+    font-size: 25px;
 }
 
 .entrar:hover {
@@ -144,6 +161,15 @@ input {
         background-color: #AD6336;
         color: #FFDDA7;
         border: #FFDDA7 solid 1px;
+    }
+    .homeButton {
+        width: auto;
+        height: 60px;
+        position:absolute;
+        margin-right: 300px;
+    }
+    .homeButton > i {
+        font-size: 40px;
     }
 }
 

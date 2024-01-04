@@ -16,6 +16,23 @@ body {
     justify-content: center;
 }
 
+.homeButton {
+    width: 45px;
+    height: 30px;
+    display: flex;
+    color: #AD6336;
+    border: none;
+    background-color: #FFDDA7;
+    cursor: pointer;
+    align-items: center;
+    position: absolute;
+    margin-right: 1200px;
+}
+
+.homeButton > i {
+    font-size: 25px;
+}
+
 .container1 {
     margin: 100px;
     display: flex;
@@ -116,6 +133,7 @@ button {
         width: 410px;
         border-radius: 30px;
         height: auto;
+        z-index: 0;
     }
     .cadastro > h1 {
         display: none;
@@ -131,6 +149,14 @@ button {
     #cadastrar {
         background-color: #FFDDA7;
         color: #AD6336;
+    }
+    .homeButton {
+        background-color: #AD6336;
+        color: #FFDDA7;
+        z-index: 1;
+        margin: 0%;
+        margin-left: 300px;
+        margin-top: 20px;
     }
 }
 

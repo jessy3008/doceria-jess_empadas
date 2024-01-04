@@ -5,10 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jess Empadas #Cadastro</title>
     <link rel="stylesheet" href="../static/cadastroU.css"/>
-    <link href="fontawesome/css/all.min.css" rel="stylesheet"/>
+    <link href="../static/fontawesome/css/all.min.css" rel="stylesheet"/>
 </head>
 <body>
     <div class="container1">
+        <button class="homeButton" onclick="redirectToHome()"><i class="fa-solid fa-house"></i></button>
         <div class="cadastro">
             <h1>CADASTRO</h1>
             <img id="cadastroM" src="../static/img/cadastroM.png">
@@ -43,6 +44,10 @@
 
         </div>
     </div>
-
+    <script>
+        function redirectToHome() {
+            window.location.href = "/";
+        }
+    </script>
 
 </body>
