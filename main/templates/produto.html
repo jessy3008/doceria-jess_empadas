@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../static/fontawesome/css/all.min.css">
 </head>
 <body>
+    <button class="homeButton" onclick="redirectToHome()"><i class="fa-solid fa-arrow-left"></i></button>
     <div class="product-container">
         <div class="img-produto"> <!-- aqui fica a img do produto -->
             <img src="" alt="" class="imgproduto">
@@ -28,5 +29,10 @@
             </form>
         </div>
     </div>
+    <script>
+        function redirectToHome() {
+            window.location.href = "/";
+        }
+    </script>
 </body>
 </html>

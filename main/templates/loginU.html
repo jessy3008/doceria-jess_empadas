@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jess Empadas #Login</title>
     <link rel="stylesheet" href="../static/loginU.css"/>
-    <link href="fontawesome/css/all.min.css" rel="stylesheet"/>
+    <link href="../static/fontawesome/css/all.min.css" rel="stylesheet"/>
 </head>
 <body>
     <div class="containerL">
-        <button class="homeButton" onclick="redirectToHome()"><i class="fa-solid fa-house"></i></button>
+        <button class="homeButton" onclick="redirectToHome()"><i class="fa-solid fa-arrow-left"></i></button>
         <div class="login">
             <img id="loginM" src="../static/img/loginM.png">
             <h1>LOGIN</h1>
@@ -23,7 +23,6 @@
                         <label id="s" for="senha">Senha:</label>
                         <input type="password" id="senha" name="senha" placeholder=" Insira sua Senha" required>
                     </fieldset>
-                    <button class="loginB" id="but" type="submit"><p>Esqueceu sua senha?</p></button>
                     <button class="entrar" id="entrar" type="submit"><h3>Entrar</h3></button>
                     <button class="loginB" id="cadastra" type="submit"><p><a href="{{ url_for('cadastro') }}" id="cdst">Cadastrar-se</a></p></button>
                 </form>

@@ -23,7 +23,25 @@ body {
     align-items: center;
      
 }
-  
+
+.homeButton {
+  width: 60px;
+  height: 50px;
+  display: flex;
+  border: none;
+  background-color: #FFEFC6;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
+  margin-left: 50px;
+}
+
+.homeButton > i {
+  font-size: 50px;
+  color: #674228;
+}
+
 .imgproduto {
     height: 400px;
     width: 550px;

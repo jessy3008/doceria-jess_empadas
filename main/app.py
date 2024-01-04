@@ -153,7 +153,7 @@ def adm_cadastra():
 
     return render_template('adm.html')
 
-@app.route('/adm', methods=['POST'])
+@app.route('/adm', methods=['POST', 'GET'])
 def adm():
     login_data = request.form.get('login')
     senha = request.form.get('senha')
@@ -178,18 +178,6 @@ def adm():
         connection.close()
         return render_template('loginADM.html', error_message="Credenciais inválidas. Tente novamente.")
 
-@app.route('/produtos')
-def produtos():
-    connection = mysql.connector.connect(conexaodb)
-    cursor = connection.cursor()
-
-    cursor.execute("SELECT * FROM produto")
-    produtos = cursor.fetchall()
-
-    cursor.close()
-    connection.close()
-
-    return render_template('home.html', produtos=produtos)
 
 @app.route('/cadastrarP', methods=['GET', 'POST'])
 def cadastrarP():
