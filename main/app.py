@@ -45,7 +45,7 @@ def verify_password(hashed_password, plain_password):
 
 
 
-@app.route('/loginU', methods=['POST'])
+@app.route('/loginU', methods=['POST']) #login usuario
 def loginU():
     login_data = request.form.get('login')
     senha = request.form.get('senha')
@@ -75,7 +75,7 @@ def loginU():
 
 
 
-@app.route('/cadastro', methods=['GET', 'POST'])
+@app.route('/cadastro', methods=['GET', 'POST']) #cadastro usuario
 def cadastro():
     if request.method == "GET":
         return render_template('cadastroU.html')
@@ -104,7 +104,7 @@ def cadastro():
 
 
 
-@app.route('/login', methods=['POST'])
+@app.route('/login', methods=['POST'])    # login():
 def login():
     login_data = request.form.get('login')
     senha = request.form.get('senha')
@@ -132,7 +132,7 @@ def login():
 
 
 
-@app.route('/adm_cadastra', methods=['GET', 'POST'])
+@app.route('/adm_cadastra', methods=['GET', 'POST']) # adm_cadastra
 def adm_cadastra():
     if request.method == "GET":
         return render_template('adm.html')
@@ -158,7 +158,7 @@ def adm_cadastra():
 
     return render_template('adm.html')
 
-@app.route('/adm', methods=['POST', 'GET'])
+@app.route('/adm', methods=['POST','GET'])
 def adm():
     login_data = request.form.get('login')
     senha = request.form.get('senha')
@@ -172,17 +172,37 @@ def adm():
     user = cursor.fetchone()
 
     if cadastra_se == 'True':  
+<<<<<<< HEAD
         return redirect(url_for('cadastrarP'))  # criar rota
+=======
+        return redirect(url_for('cadastrarP'))
+>>>>>>> 10c97facc60367e2d53a3d37aeb0cf72ad0cf714
 
     if user:
         cursor.close()
         connection.close()
+<<<<<<< HEAD
         return redirect(url_for('cadastrarP'))  # criar rota
+=======
+        return redirect(url_for('cadastrarP'))  
+>>>>>>> 10c97facc60367e2d53a3d37aeb0cf72ad0cf714
     else:
         cursor.close()
         connection.close()
         return render_template('loginADM.html', error_message="Credenciais inválidas. Tente novamente.")
 
+@app.route('/produtos')
+def produtos():
+    connection = mysql.connector.connect(conexaodb)
+    cursor = connection.cursor()
+
+    cursor.execute("SELECT * FROM produto")
+    produtos = cursor.fetchall()
+
+    cursor.close()
+    connection.close()
+
+    return render_template('home.html', produtos=produtos)
 
 @app.route('/cadastrarP', methods=['GET', 'POST'])
 def cadastrarP():
