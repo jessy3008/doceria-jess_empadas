@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 8.0.33, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.30, for Win64 (x86_64)
 --
 -- Host: localhost    Database: jessempadas
 -- ------------------------------------------------------
--- Server version	8.0.35
+-- Server version	8.0.30
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -16,31 +16,30 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `fornecedor`
+-- Table structure for table `imagem`
 --
 
-DROP TABLE IF EXISTS `fornecedor`;
+DROP TABLE IF EXISTS `imagem`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `fornecedor` (
-  `cnpj` varchar(18) NOT NULL,
-  `nome` varchar(200) NOT NULL,
-  `email` varchar(200) NOT NULL,
-  `senha` varchar(256) NOT NULL,
-  `telefone` varchar(13) DEFAULT NULL,
-  PRIMARY KEY (`cnpj`),
-  UNIQUE KEY `cnpj_UNIQUE` (`cnpj`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+CREATE TABLE `imagem` (
+  `imagemID` int NOT NULL AUTO_INCREMENT,
+  `codProduto` int NOT NULL,
+  `urlImagem` varchar(256) NOT NULL,
+  PRIMARY KEY (`imagemID`),
+  KEY `codProduto1` (`codProduto`),
+  CONSTRAINT `codProduto1` FOREIGN KEY (`codProduto`) REFERENCES `produto` (`codproduto`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `fornecedor`
+-- Dumping data for table `imagem`
 --
 
-LOCK TABLES `fornecedor` WRITE;
-/*!40000 ALTER TABLE `fornecedor` DISABLE KEYS */;
-INSERT INTO `fornecedor` VALUES ('11.555.666/0007-00','Jessica Nascimento','jessyempadas@gmail.com','121212','99988800');
-/*!40000 ALTER TABLE `fornecedor` ENABLE KEYS */;
+LOCK TABLES `imagem` WRITE;
+/*!40000 ALTER TABLE `imagem` DISABLE KEYS */;
+INSERT INTO `imagem` VALUES (3,126,'static/img/126.jpg'),(4,300,'static/img/300.jpeg'),(5,1,'static/img/01.jfif'),(6,1411,'static/img/1411.jpg'),(7,1114,'static/img/1114.jfif');
+/*!40000 ALTER TABLE `imagem` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -52,4 +51,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-01-04 23:07:02
+-- Dump completed on 2024-01-05 15:46:18

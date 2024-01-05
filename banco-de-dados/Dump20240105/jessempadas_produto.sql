@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 8.0.33, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.30, for Win64 (x86_64)
 --
 -- Host: localhost    Database: jessempadas
 -- ------------------------------------------------------
--- Server version	8.0.35
+-- Server version	8.0.30
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -47,7 +47,7 @@ CREATE TABLE `produto` (
 
 LOCK TABLES `produto` WRITE;
 /*!40000 ALTER TABLE `produto` DISABLE KEYS */;
-INSERT INTO `produto` VALUES (126,'13','2024-02-10',100,2.00,'empadas doces','empada doce - prestigio (P)','empada prestigio','11.555.666/0007-00'),(300,'90','2024-01-08',1,60.00,'bolos','Bolo de 1kg','bolo','11.555.666/0007-00');
+INSERT INTO `produto` VALUES (1,'0001','2024-02-10',5,2.00,'empadas doces','gostoso','empada tradicional','11.555.666/0007-00'),(126,'13','2024-02-10',100,2.00,'empadas doces','empada doce - prestigio (P)','empada prestigio','11.555.666/0007-00'),(300,'90','2024-01-08',1,60.00,'bolos','Bolo de 1kg','bolo','11.555.666/0007-00'),(1114,'0001','2024-01-14',20,5.00,'empadas salgadas','Empada de bacon','Empada de Bacon','11.555.666/0007-00'),(1411,'0001','2024-01-14',20,5.00,'empadas doces','Empada de Maracuja','Empada de Maracuja','11.555.666/0007-00');
 /*!40000 ALTER TABLE `produto` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -60,4 +60,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-01-04 23:06:59
+-- Dump completed on 2024-01-05 15:46:18

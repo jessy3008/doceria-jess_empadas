@@ -8,7 +8,7 @@ def conexaodb():
     conect = mysql.connector.connect(
         host='127.0.0.1',
         user='root',
-        password='IFjenni23',
+        password='labinfo',
         database='jessempadas'
     )
     return conect
@@ -216,7 +216,7 @@ def cadastrarP():
         cursor.close()
         connection.close()
 
-        return redirect(url_for('produtos'))
+        return redirect(url_for('home'))
 
     return render_template('cadastrarP.html')
 

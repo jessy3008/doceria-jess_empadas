@@ -67,9 +67,9 @@
             {% for produto in produtos %}
             <div class="card-produto">
                 <div class="card-imgP">
-                    <img src="{{ produto.urlImagem }}" alt="{{ produto.nome }}">
+                    <img src="{{ produto[1] }}" alt="{{ produto[0] }}">
                     <div class="nomeP">
-                        <p>{{ produto.nome }}</p>
+                        <p>{{ produto[0] }}</p>
                     </div>
                 </div>
             </div>            

@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 8.0.33, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.30, for Win64 (x86_64)
 --
 -- Host: localhost    Database: jessempadas
 -- ------------------------------------------------------
--- Server version	8.0.35
+-- Server version	8.0.30
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -16,31 +16,35 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `compra`
+-- Table structure for table `carrinho`
 --
 
-DROP TABLE IF EXISTS `compra`;
+DROP TABLE IF EXISTS `carrinho`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `compra` (
-  `codcompra` int NOT NULL AUTO_INCREMENT,
-  `valor` decimal(10,2) NOT NULL,
+CREATE TABLE `carrinho` (
+  `carrinhoID` int NOT NULL AUTO_INCREMENT,
   `cpfUsuario` varchar(14) NOT NULL,
-  `datacompra` date NOT NULL,
+  `codProduto` int NOT NULL,
   `quantidade` int NOT NULL,
-  PRIMARY KEY (`codcompra`),
+  `codCompra` int NOT NULL,
+  PRIMARY KEY (`carrinhoID`),
   KEY `idusuario_idx` (`cpfUsuario`),
-  CONSTRAINT `idusuario` FOREIGN KEY (`cpfUsuario`) REFERENCES `usuario` (`cpf`)
+  KEY `codproduto_idx` (`codProduto`),
+  KEY `fk_carrinho_compra1_idx` (`codCompra`),
+  CONSTRAINT `codproduto` FOREIGN KEY (`codProduto`) REFERENCES `produto` (`codproduto`),
+  CONSTRAINT `fk_carrinho_compra1` FOREIGN KEY (`codCompra`) REFERENCES `compra` (`codcompra`),
+  CONSTRAINT `idusuario1` FOREIGN KEY (`cpfUsuario`) REFERENCES `usuario` (`cpf`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `compra`
+-- Dumping data for table `carrinho`
 --
 
-LOCK TABLES `compra` WRITE;
-/*!40000 ALTER TABLE `compra` DISABLE KEYS */;
-/*!40000 ALTER TABLE `compra` ENABLE KEYS */;
+LOCK TABLES `carrinho` WRITE;
+/*!40000 ALTER TABLE `carrinho` DISABLE KEYS */;
+/*!40000 ALTER TABLE `carrinho` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -52,4 +56,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-01-04 23:07:01
+-- Dump completed on 2024-01-05 15:46:18

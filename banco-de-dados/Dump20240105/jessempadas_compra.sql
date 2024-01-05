@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 8.0.33, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.30, for Win64 (x86_64)
 --
 -- Host: localhost    Database: jessempadas
 -- ------------------------------------------------------
--- Server version	8.0.35
+-- Server version	8.0.30
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -16,30 +16,31 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `imagem`
+-- Table structure for table `compra`
 --
 
-DROP TABLE IF EXISTS `imagem`;
+DROP TABLE IF EXISTS `compra`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `imagem` (
-  `imagemID` int NOT NULL AUTO_INCREMENT,
-  `codProduto` int NOT NULL,
-  `urlImagem` varchar(256) NOT NULL,
-  PRIMARY KEY (`imagemID`),
-  KEY `codProduto1` (`codProduto`),
-  CONSTRAINT `codProduto1` FOREIGN KEY (`codProduto`) REFERENCES `produto` (`codproduto`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb3;
+CREATE TABLE `compra` (
+  `codcompra` int NOT NULL AUTO_INCREMENT,
+  `valor` decimal(10,2) NOT NULL,
+  `cpfUsuario` varchar(14) NOT NULL,
+  `datacompra` date NOT NULL,
+  `quantidade` int NOT NULL,
+  PRIMARY KEY (`codcompra`),
+  KEY `idusuario_idx` (`cpfUsuario`),
+  CONSTRAINT `idusuario` FOREIGN KEY (`cpfUsuario`) REFERENCES `usuario` (`cpf`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `imagem`
+-- Dumping data for table `compra`
 --
 
-LOCK TABLES `imagem` WRITE;
-/*!40000 ALTER TABLE `imagem` DISABLE KEYS */;
-INSERT INTO `imagem` VALUES (3,126,'static/img/126.jpg'),(4,300,'static/img/300.jpeg');
-/*!40000 ALTER TABLE `imagem` ENABLE KEYS */;
+LOCK TABLES `compra` WRITE;
+/*!40000 ALTER TABLE `compra` DISABLE KEYS */;
+/*!40000 ALTER TABLE `compra` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -51,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-01-04 23:07:00
+-- Dump completed on 2024-01-05 15:46:17
