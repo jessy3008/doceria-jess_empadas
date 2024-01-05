@@ -2,21 +2,13 @@ from flask import Flask, render_template, request, url_for, redirect
 
 import mysql.connector
 
-import hashlib
-
-from werkzeug.utils import secure_filename 
-
-import os 
-
-
-
 app = Flask(__name__)
 
 def conexaodb():
     conect = mysql.connector.connect(
         host='127.0.0.1',
         user='root',
-        password='labinfo',
+        password='IFjenni23',
         database='jessempadas'
     )
     return conect
@@ -26,22 +18,28 @@ def conexaodb():
 def home():
     if request.method == 'POST':
         return redirect(url_for('home'))
-    return render_template('home.html')
+    
+    connection = conexaodb()
+    cursor = connection.cursor()
+
+    cursor.execute("""
+        SELECT produto.nome, imagem.urlImagem
+        FROM produto
+        JOIN imagem ON produto.codproduto = imagem.codProduto
+    """)
+    produtos = cursor.fetchall()
+
+    cursor.close()
+    connection.close()
+
+    return render_template('home.html', produtos=produtos)
+
+  
 
 
 @app.route('/carrinho', methods=['POST'])
 def carrinho():
     return render_template('carrinho.html')
-
-
-
-def hash_password(password):
-    return hashlib.sha256(password.encode()).hexdigest()
-
-
-def verify_password(hashed_password, plain_password):
- 
-    return hashed_password == hash_password(plain_password)
 
 
 
@@ -61,7 +59,7 @@ def loginU():
     if cadastra_se == 'True':
         return redirect(url_for('cadastro'))
 
-    elif user and verify_password(user[0], senha): 
+    elif user and senha(user[0], senha): 
         cursor.close()
         connection.close()
         return redirect(url_for('home'))
@@ -86,13 +84,12 @@ def cadastro():
         telefone = request.form.get('telefone')
         senha = request.form.get('senha')
 
-        hashed_password = hashlib.sha256(senha.encode()).hexdigest()
 
         connection = conexaodb()
         cursor = connection.cursor()
 
         cursor.execute('INSERT INTO usuario (cpf, nome, telefone, email, senha) VALUES (%s, %s, %s, %s, %s)',
-                       (cpf, nome, telefone, email, hashed_password))
+                       (cpf, nome, telefone, email, senha))
         connection.commit()
 
         cursor.close()
@@ -104,7 +101,7 @@ def cadastro():
 
 
 
-@app.route('/login', methods=['POST'])    # login():
+@app.route('/login', methods=['POST'])    # login
 def login():
     login_data = request.form.get('login')
     senha = request.form.get('senha')
@@ -132,7 +129,7 @@ def login():
 
 
 
-@app.route('/adm_cadastra', methods=['GET', 'POST']) # adm_cadastra
+@app.route('/adm_cadastra', methods=['GET', 'POST']) #cadastro de adm
 def adm_cadastra():
     if request.method == "GET":
         return render_template('adm.html')
@@ -154,11 +151,11 @@ def adm_cadastra():
         cursor.close()
         connection.close()
 
-        return redirect(url_for('cadastrarP')) # criar rt
+        return redirect(url_for('cadastrarP')) 
 
     return render_template('adm.html')
 
-@app.route('/adm', methods=['POST','GET'])
+@app.route('/adm', methods=['POST','GET']) #login de adm
 def adm():
     login_data = request.form.get('login')
     senha = request.form.get('senha')
@@ -172,39 +169,18 @@ def adm():
     user = cursor.fetchone()
 
     if cadastra_se == 'True':  
-<<<<<<< HEAD
-        return redirect(url_for('cadastrarP'))  # criar rota
-=======
-        return redirect(url_for('cadastrarP'))
->>>>>>> 10c97facc60367e2d53a3d37aeb0cf72ad0cf714
+        return redirect(url_for('cadastrarP'))  
 
     if user:
         cursor.close()
         connection.close()
-<<<<<<< HEAD
-        return redirect(url_for('cadastrarP'))  # criar rota
-=======
         return redirect(url_for('cadastrarP'))  
->>>>>>> 10c97facc60367e2d53a3d37aeb0cf72ad0cf714
     else:
         cursor.close()
         connection.close()
         return render_template('loginADM.html', error_message="Credenciais inválidas. Tente novamente.")
 
-@app.route('/produtos')
-def produtos():
-    connection = mysql.connector.connect(conexaodb)
-    cursor = connection.cursor()
-
-    cursor.execute("SELECT * FROM produto")
-    produtos = cursor.fetchall()
-
-    cursor.close()
-    connection.close()
-
-    return render_template('home.html', produtos=produtos)
-
-@app.route('/cadastrarP', methods=['GET', 'POST'])
+@app.route('/cadastrarP', methods=['GET', 'POST']) #cadastro de produto
 def cadastrarP():
     if request.method == "GET":
         return render_template('cadastrarP.html')
@@ -220,13 +196,9 @@ def cadastrarP():
         valor = request.form.get('valor')
         img = request.files['img']
 
-        filename = secure_filename(img.filename)
         extensao = img.filename.rsplit('.',1)[1]
 
-
-        url = f'static/img/{filename}.{extensao}'
-
-
+        url = f'static/img/{codproduto}.{extensao}'
 
         img.save(url)
             
@@ -239,6 +211,7 @@ def cadastrarP():
         connection.commit()
 
         cursor.execute('INSERT INTO imagem (codProduto, urlImagem) VALUES (%s, %s)', (codproduto, url))
+        connection.commit()
 
         cursor.close()
         connection.close()

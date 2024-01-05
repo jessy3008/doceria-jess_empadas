@@ -65,14 +65,18 @@
         </section>
         <section id="produtos">
             {% for produto in produtos %}
-                <div class="card-produto">
-                    <div class="card-imgP">
-                        <img src="{{ produto.imagem }}">
+            <div class="card-produto">
+                <div class="card-imgP">
+                    <img src="{{ produto.urlImagem }}" alt="{{ produto.nome }}">
+                    <div class="nomeP">
+                        <p>{{ produto.nome }}</p>
                     </div>
-                    <div class="nomeP"><p>{{ produto.nome }}</p></div>
                 </div>
+            </div>            
             {% endfor %}
         </section>
+        
+        
 
     </main>
     

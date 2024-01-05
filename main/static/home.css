@@ -270,6 +270,17 @@ main {
         height: 200px;
         background-image: url(../static/img/heroM.png);
     }
+    .card-imgP {
+        width: 150px;
+        height: 175px;
+
+    }
+    #produtos {
+        gap: 15px;
+    }
+    .nomeP {
+        width: 120px;
+    }
 }
 
 
@@ -345,6 +356,7 @@ footer {
     justify-content: center;
     align-items: center;
     margin-bottom: 50px;
+    gap: 50px;
 }
 
 .card-imgP {
@@ -353,9 +365,15 @@ footer {
     justify-content: center;
     width: 250px;
     height: 275px;
-    background-color: #DFB470;
+    background-color: #674228;
     z-index: 0;
-    position:sticky;
+    margin-top: 25px;
+}
+
+.card-imgP > img {
+    width: auto;
+    height: auto;
+    
 }
 
 .nomeP {
@@ -365,6 +383,5 @@ footer {
     display: flex;
     justify-content: center;
     z-index: 1;
-    position:absolute;
-    margin-top: -50px;
 }
+
