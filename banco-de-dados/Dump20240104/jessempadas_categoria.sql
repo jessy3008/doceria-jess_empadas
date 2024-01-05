@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 8.0.30, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.33, for Win64 (x86_64)
 --
 -- Host: localhost    Database: jessempadas
 -- ------------------------------------------------------
--- Server version	8.0.30
+-- Server version	8.0.35
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -36,6 +36,7 @@ CREATE TABLE `categoria` (
 
 LOCK TABLES `categoria` WRITE;
 /*!40000 ALTER TABLE `categoria` DISABLE KEYS */;
+INSERT INTO `categoria` VALUES ('Bolos','Temos bolos de 1kg-R$60,00, 3kg-R$170,00 e de 5kg-R$280,00'),('caixinhas presentáveis','caixinhas com empadas deliciosas para presentear a pessoa que\nvocê ama'),('cheesecake','Serve até 4 pessoas'),('Combos','Um combo de empadas com diversos sabores é uma proposta de dar água na\nboca. Imagino uma caixa delicadamente arranjada, exibindo uma variedade de empadas\nque atiçam os sentidos.'),('empadas doces','sabores simples e especiais tamanhos pequenos e grandes que vão de\nR$2,00-R$4,50'),('empadas salgadas','temos apenas o sabor frango de 90g que o valor é de R$3,50 e de\n200g que em o valor de R$7,50'),('tortas salgadas','De 10 fatias que está de R$40,00 e de 20 fatias que está por R$70,00'),('tortinhas','Sabores chocolate e oreo que estão apenas por R$6,00');
 /*!40000 ALTER TABLE `categoria` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -48,4 +49,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-01-04 18:12:40
+-- Dump completed on 2024-01-04 23:06:59
