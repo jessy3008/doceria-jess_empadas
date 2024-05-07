@@ -8,7 +8,7 @@ def conexaodb():
     conect = mysql.connector.connect(
         host='127.0.0.1',
         user='root',
-        password='labinfo',
+        password='IFjenni23',
         database='jessempadas'
     )
     return conect
