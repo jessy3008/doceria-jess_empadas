@@ -1,26 +1,25 @@
-#           Doceria - Jess Empadas
+# Doceria - Jess Empadas
 > Status: Developing ⚠️
 
 ![identidade-visual](https://github.com/jessy3008/doceria-jess_empadas/assets/99359081/5ce62737-bfca-4b5b-9853-cdefc21f9860)
 <ul>
   <li><h3>Sobre</h3> Projeto das matérias: Autoria Web & Programação com Acesso a Banco de Dados
 (IFRN - 23.2). Trata-se de uma aplicação web para a gestão de uma doceria, que oferece controle de vendas e facilita compras.</li> 
-  <li><h3>Devs</h3></li>
+  <li><h3>Autores</h3></li>
   <ul>
     <li>Abne Lucas [https://github.com/AbneSantos] </li>
     <li>Jennifer Domingos [https://github.com/jenniferkaroline] </li>
     <li>Jessica Nascimento [https://github.com/jessy3008] </li>
     <li>Raul Gabriel [https://github.com/raulzinho123] </li>
   </ul>
-  <li><h3>Wireframes</h3></li>
+  <li><h3>Tecnologias Utilizadas</h3></li>
   <ul>
-    <li>Mockup: https://www.figma.com/file/MhtmamAg2wbbhFelK5WHJp/mockup----jess-empadas?type=design&node-id=0%3A1&mode=design&t=07GmmunZ1g9lZ872-1</li>
-    <li>Mobile: https://www.figma.com/file/7xQbjkBeriDddiXLYmKiDO/wf-mobile---jess-emp?type=design&node-id=2%3A52&mode=design&t=nzPMxbTWfpDhxfRR-1</li>
-    <li>Desktop: https://www.figma.com/file/G7QpAgo7BsDaDxQwO9GRwr/wf-desktop---jess-emp?type=design&node-id=0%3A1&mode=design&t=ldtaU1e3Qlxvaabf-1</li>
-  </ul>
-  <li><h3>Apresentações</h3></li>
-  <ul>
-    <li>https://www.canva.com/design/DAF3DtQPBRE/ANDoOiXlWNNpwAUinvgnlg/edit?utm_content=DAF3DtQPBRE&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton</li>
+    <li>Python</li>
+    <li>Flask</li>
+    <li>Html</li>
+    <li>Css</li>
+    <li>Java Script</li>
+    <li>MySQL</li>
   </ul>
 </ul>
 
