@@ -8,7 +8,7 @@
   <li><h3>Autores</h3></li>
   <ul>
     <li>Abne Lucas [https://github.com/AbneSantos] </li>
-    <li>Jennifer Domingos [https://github.com/jenniferkaroline] </li>
+    <li>Jennifer Domingos [https://github.com/jenniferdomgs] </li>
     <li>Jessica Nascimento [https://github.com/jessy3008] </li>
     <li>Raul Gabriel [https://github.com/raulzinho123] </li>
   </ul>
